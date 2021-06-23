@@ -2,23 +2,23 @@
 # define SAMPLE_CLASS_H
 
 
-class Sample { // class keyword followed by identifier Sample that allow us to identify this class
+class Sample { 
 
-    public: // public keyword
+    public:
+        //member attribute
+        // a member attribute is just a variable that you have in your class, and that you may use from 
+        //your instance.
+        //meaning that you have a foo variable set up in your every instance of your class
+        int foo;
 
-        Sample( void ); // declare constructor
-        ~Sample( void ); // and destructor from my class
+        Sample( void ); 
+        ~Sample( void );
 
-        //constructor and distructor don't have a return type
-        //c++ uses the name of the class for destructor ,
-        //and name of the class preceded by ~ for destruction.
+        //member function
+        //meaning a function of my class that i will be able to use in every instance of my class
+        void bar( void ); 
 
-        
 };
 
 
 #endif
-
-//Sample.class.hpp is a class header
-//hpp extension to define my c++ headers
-//in .h or .hpp we will able to declare the class and the functions and attributes that contains

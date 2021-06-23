@@ -1,11 +1,10 @@
 #include <iostream>
 #include "Sample.class.hpp"
 
-Sample::Sample( void ){ // define Sample constructor of the Sample class
+Sample::Sample( void ){ 
     std::cout << "Constructor called" << std::endl;
-    //constructor and destructor of c++ classes don't have a return type;
-    // we can see it as it return void , but it's not actually written
-    return; // we write treturn to show that we're done written our constructor, if we forget it , it will works in the same way
+   
+    return; 
 
 }
 
@@ -13,5 +12,9 @@ Sample::~Sample( void ){
     std::cout << "Destructor called" << std::endl;
     return;
 }
-//Sample.class.cpp name of the class
-//in .cpp we will able to define this fuctions present in the class
+
+//the member functions have a return type in front
+void Sample::bar( void ){
+    std::cout << "Member function bar called" << std::endl;
+    return;
+}
