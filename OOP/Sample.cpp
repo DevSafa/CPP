@@ -2,6 +2,7 @@
 #include "Sample.class.hpp"
 #include "Sample1.class.hpp"
 #include "Sample2.class.hpp"
+#include "Sample3.class.hpp"
 
 int main(){
 
@@ -24,5 +25,12 @@ int main(){
     //using Sample2 constructor
     Sample2 instance2('z', 13, 3.14f);
 
+    std::cout << "---------------" << std::endl;
+
+    Sample3 instance3( 3.14f );
+    instance3.bar();
+
     return 0;
 }
+
+// g++ -Wall -Wextra -Werror  Sample.class.cpp Sample1.class.cpp Sample2.class.cpp Sample3.class.cpp Sample.cpp
