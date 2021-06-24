@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Sample2.class.hpp"
 
+//using a syntax called initialization list
+// a1(p1), a2(p2), a3(p3) it will allow us to initialize my attributes
 Sample2::Sample2( char p1, int p2, float p3 ) : a1(p1), a2(p2), a3(p3) {
     
     std::cout << "Constructor called" << std::endl;

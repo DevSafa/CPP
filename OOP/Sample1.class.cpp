@@ -2,7 +2,7 @@
 
 #include "Sample1.class.hpp"
 
-Sample::Sample1( char p1, int p2, float p3){
+Sample1::Sample1( char p1, int p2, float p3){
 
     std::cout << "Constructor called" << std::endl;
 
@@ -14,13 +14,13 @@ Sample::Sample1( char p1, int p2, float p3){
     std::cout << "this->a2 = " << this->a2 << std::endl;
 
     this->a3 = p3;
-    std::cout << "this->a3 = " << this->a3 <, std::endl;
+    std::cout << "this->a3 = " << this->a3 << std::endl;
 
     return;
 
 }
 
-Sample::~Sample1( void ){
+Sample1::~Sample1( void ){
     std::cout << "Destructor called" << std::endl;
     return;
 }

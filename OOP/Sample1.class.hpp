@@ -1,7 +1,7 @@
 #ifndef SAMPLE1_CLASS_H
 # define SAMPLE1_CLASS_H
 
-class SAMPL1{
+class Sample1{
     public :
         char    a1;
         int     a2;
