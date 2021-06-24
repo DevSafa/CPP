@@ -3,6 +3,7 @@
 #include "Sample1.class.hpp"
 #include "Sample2.class.hpp"
 #include "Sample3.class.hpp"
+#include "Sample4.class.hpp"
 
 int main(){
 
@@ -30,7 +31,21 @@ int main(){
     Sample3 instance3( 3.14f );
     instance3.bar();
 
+    std::cout << "---------------" << std::endl;
+
+    Sample4 instance4;
+
+    instance4.publicFoo = 42;
+    std::cout << "instance.publicFoo: " << instance4.publicFoo << std::endl;
+
+    //we can't
+    //instance4._privateFoo = 42;
+    //std::cout << "instance4._privateFoo: " << instance4._privateFoo << std::end;
+
+    instance4.publicBar();
+    //instance4._privateBar();
+    
     return 0;
 }
 
-// g++ -Wall -Wextra -Werror  Sample.class.cpp Sample1.class.cpp Sample2.class.cpp Sample3.class.cpp Sample.cpp
+//g++ -std=c++98 -Wall -Wextra -Werror  Sample.class.cpp Sample1.class.cpp Sample2.class.cpp Sample3.class.cpp Sample.cpp
