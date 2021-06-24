@@ -1,6 +1,23 @@
 #include <iostream>
 #include "Sample.class.hpp"
 #include "Sample1.class.hpp"
+#include "Sample2.class.hpp"
+
+void f0( void ){
+    Sample2 instance;
+
+    std::cout << "Number of instances : " << Sample2::getNbInst() << std::endl;
+
+    return;
+}
+
+void f1( void ){
+    Sample2 instance;
+
+    std::cout << "Number of instances : " << Sample2::getNbInst() << std::endl;
+    f0();
+    return;
+}
 int main()
 {
     Sample instance;
@@ -39,5 +56,12 @@ int main()
     else
         std::cout << "instance1 and instance2 are not  structurally equal" << std::endl;
 
-        return 0;
+    std::cout << "------------------------" << std::endl;
+    
+    std::cout << "Number of instances : " << Sample2::getNbInst() << std::endl;
+    f1();
+    std::cout << "Number of instances : " << Sample2::getNbInst() << std::endl;
+
+    return 0;
+
 }
