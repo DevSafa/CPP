@@ -4,6 +4,8 @@
 #include "Sample2.class.hpp"
 #include "Sample3.class.hpp"
 #include "Sample4.class.hpp"
+#include "Sample5.class.hpp"
+#include "Sample6.class.hpp"
 
 int main(){
 
@@ -45,6 +47,16 @@ int main(){
     instance4.publicBar();
     //instance4._privateBar();
     
+    std::cout << "---------------" << std::endl;
+
+    Sample5 instance5;
+
+    std::cout << "**********" << std::endl;
+
+   // Sample6 instance6;
+
+
+
     return 0;
 }
 
