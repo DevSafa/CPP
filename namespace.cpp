@@ -37,4 +37,4 @@ int main(void) {
 
 // there is one namespace in particular , that you will use a lot ,it's the standard namespace  std:: , in which you can find 
 //in the whole standard c++ library
-//to compiile  : g++ -Wall -Wextra -Werror namespace.cpp
+//to compiile  : g++ -std=c++98 -Wall -Wextra -Werror namespace.cpp
