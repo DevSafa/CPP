@@ -12,7 +12,7 @@ class PhoneBook{
         Contact *getContacts( void );
         int   get_limit( void );
     private:
-        Contact _contacts[3];
+        Contact _contacts[8];
         int _limit;
 };
 

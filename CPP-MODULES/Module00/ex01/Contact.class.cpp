@@ -4,7 +4,7 @@
 
 Contact::Contact( void ){
    // std::cout << "Contructur called" << std::endl;
-    if(Contact::_nbrContacts == 3)
+    if(Contact::_nbrContacts == 8)
         Contact::_nbrContacts = 0;
     Contact::_nbrContacts +=1;
 }

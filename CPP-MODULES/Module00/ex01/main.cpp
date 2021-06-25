@@ -58,6 +58,9 @@ int main()
         else if (command.compare("EXIT") == 0)
             exit = 0;
     }
+
+   // std::string mystring = "a very long long string";
+    //std::cout << std::truncate(mystring,8) << std::endl;
    
 
     
