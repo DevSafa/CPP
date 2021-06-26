@@ -15,7 +15,8 @@ int main()
     PhoneBook phoneBook;
 
     exit = 1;
-    while(exit == 1)
+    //ctrl-D is end of file
+    while(!std::cin.eof() && exit == 1)
     {
        
         std::cout << "Enter a command (ADD - SEARCH - EXIT) : " << std::endl;

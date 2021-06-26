@@ -2,33 +2,30 @@
 # define CONTACT_CLASS_H
 
 #include <string>
-using namespace std;
-
+#include <iostream>
 class Contact{
 
 public:
     Contact( void );
     ~Contact( void );
-    void setFirstName(string first_name);
-    void setLastName(string last_name);
-    void setNickname(string nickname);
-    void setPhoneNumber(string phoneNumber);
-    void setDarkestSecret(string darkest_Secret);
-    string  getFirstName();
-    string  getLastName();
-    string  getNickName();
-    string  getPhoneNumber();
-    string  getDarkestSecret();
+    void setFirstName(std::string first_name);
+    void setLastName(std::string last_name);
+    void setNickname(std::string nickname);
+    void setPhoneNumber(std::string phoneNumber);
+    void setDarkestSecret(std::string darkest_Secret);
+    std::string  getFirstName() const;
+    std::string  getLastName() const;
+    std::string  getNickName() const;
+    std::string  getPhoneNumber() const;
+    std::string  getDarkestSecret() const;
     static int getNbrContacts();
 private:
-    string _first_name;
-    string _last_name;
-    string _nickname;
-    string _phone_number;
-    string _darkest_secret;
+    std::string _first_name;
+    std::string _last_name;
+    std::string _nickname;
+    std::string _phone_number;
+    std::string _darkest_secret;
     static int _nbrContacts;
-
-
 };
 
 #endif

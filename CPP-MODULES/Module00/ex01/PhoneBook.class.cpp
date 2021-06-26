@@ -1,30 +1,26 @@
-#include <iostream>
+
 #include "PhoneBook.class.hpp"
 
-PhoneBook::PhoneBook( void )
-{
+PhoneBook::PhoneBook( void ){
     this->_limit = 0;
-    std::cout << "contrictor called" << std::endl;
 }
 
-PhoneBook:: ~PhoneBook( void )
-{
-    std::cout << "Destructor called" << std::endl;
+PhoneBook:: ~PhoneBook( void ){
 }
 
-void PhoneBook::add_contact(Contact contact)
-{
+void PhoneBook::add_contact(Contact contact){
+
     this->_contacts[Contact::getNbrContacts() - 1] = contact;
     if(this->_limit != 8)
         this->_limit +=1;
 }
 
-int PhoneBook::get_limit( void )
-{
+int PhoneBook::get_limit( void ){
+
     return this->_limit;
 }
-Contact *PhoneBook::getContacts( void )
-{
+Contact *PhoneBook::getContacts( void ){
+
     return this->_contacts;
 }
 
@@ -38,8 +34,7 @@ void PhoneBook::display_contacts( void )
    nbr = PhoneBook::get_limit();
    std::cout << "     index|first name| last name|  nickname" << std::endl;
 
-    int k = 0;
-    int j = 0;
+    unsigned long k = 0;
    while(i < nbr)
    {
        k = 0;
@@ -117,15 +112,20 @@ void PhoneBook::display_contacts( void )
         std::cout << std::endl;
         i++;
    }
-    // int index;
+    int index;
 
-    // std::cout << "Enter an index : ";
-    // std::cin >> index;
-
-    // std::cout << contacts[i].getFirstName() << std::endl;
-    //     std::cout << contacts[i].getLastName() << std::endl;
-    //     std::cout << contacts[i].getNickName() << std::endl;
-    //     std::cout << contacts[i].getPhoneNumber() << std::endl;
+    std::cout << "Enter an index : ";
+    std::cin >> index;
+    if(index -1 >= 0 && (index - 1) < PhoneBook::get_limit())
+    {
+        std::cout << contacts[index-1].getFirstName() << std::endl;
+        std::cout << contacts[index-1].getLastName() << std::endl;
+        std::cout << contacts[index-1].getNickName() << std::endl;
+        std::cout << contacts[index-1].getPhoneNumber() << std::endl;
+    }else
+    {
+        std::cout << "there is no contact with that indice" << std::endl;
+    }
 
 }
 

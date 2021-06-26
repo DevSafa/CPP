@@ -3,39 +3,38 @@
 
 
 Contact::Contact( void ){
-   // std::cout << "Contructur called" << std::endl;
     if(Contact::_nbrContacts == 8)
         Contact::_nbrContacts = 0;
     Contact::_nbrContacts +=1;
 }
 Contact::~Contact( void ){
-   // std::cout << "Destructor called" << std::endl;
+
 }
 
-void Contact::setFirstName(string first_name){
+void Contact::setFirstName(std::string first_name){
     this->_first_name= first_name;
 }
 
-void Contact::setLastName(string last_name){
+void Contact::setLastName(std::string last_name){
     this->_last_name= last_name;
 }
 
-void Contact::setNickname(string nickname){
+void Contact::setNickname(std::string nickname){
     this->_nickname= nickname;
 }
-void Contact::setPhoneNumber(string phone_number){
+void Contact::setPhoneNumber(std::string phone_number){
     this->_phone_number= phone_number;
 }
 
-void Contact::setDarkestSecret(string darkest_secret){
+void Contact::setDarkestSecret(std::string darkest_secret){
     this->_darkest_secret= darkest_secret;
 }
 
-string Contact::getFirstName(){
+std::string Contact::getFirstName()const{
     return this->_first_name;
 }
 
-string Contact::getLastName(){
+std::string Contact::getLastName()const{
     return this->_last_name;
 }
 
@@ -44,16 +43,15 @@ int Contact::getNbrContacts()
     return Contact::_nbrContacts;
 }
 
-
-string Contact::getNickName(){
+std::string Contact::getNickName()const{
     return this->_nickname;
 }
 
-string Contact::getPhoneNumber(){
+std::string Contact::getPhoneNumber()const{
     return this->_phone_number;
 }
 
-string Contact::getDarkestSecret(){
+std::string Contact::getDarkestSecret()const{
     return this->_darkest_secret;
 }
 
