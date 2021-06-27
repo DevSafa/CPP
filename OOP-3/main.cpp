@@ -34,6 +34,8 @@ class Student1 {
         }
 };
 
+
+
 int main()
 {
     //allocate the first student on the stack
@@ -63,6 +65,13 @@ int main()
     
     //deallocate all the students together
     delete [] students;
+
+    std::cout << "-----------------------------------" << std::endl;
+
+    Student2    boby = Student2("bfubar");
+    Student2 const   jack = Student2("jfubar");
+
+    std::cout << boby.getLoginRefConst() << " " << jack.getLoginRefConst() << std::endl;
 
     return(0); // bob is destroyed
     // when i exit my main function the student bob is destroyed 

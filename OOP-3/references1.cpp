@@ -18,6 +18,11 @@ class Student2 {
             return &(this->_login);
         }
 
+        std::string &    getLoginRef()
+        {
+            return this->_login;
+        }
+
         std::string const * getLoginPtrConst() const
         {
             return &(this->_login);
@@ -31,7 +36,14 @@ int main()
     Student2 const   jack = Student2("jfubar");
 
     std::cout << boby.getLoginRefConst() << " " << jack.getLoginRefConst() << std::endl;
+    std::cout << *(boby.getLoginPtrConst()) << " " << *(jack.getLoginPtrConst()) << std::endl;
 
+
+    boby.getLoginRef() ="bobfubar";
+    std::cout << boby.getLoginRefConst() << std::endl;
+
+    *(boby.getLoginPtr()) = "bobyfubar";
+    std::cout << boby.getLoginRefConst() << std::endl;
     return(0); // bob is destroyed
     // when i exit my main function the student bob is destroyed 
 }
