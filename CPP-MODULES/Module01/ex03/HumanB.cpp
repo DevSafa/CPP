@@ -1,36 +1,30 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB( std::string name )
+HumanB::HumanB( std::string const & name) :_name(name)
 {
-  this->_name = name;
+    
 }
 
 HumanB::~HumanB( void )
 {
-    std::cout << "Destructor is called" << std::endl;
+   // std::cout << "Destructor is called" << std::endl;
 }
 
-std::string HumanB::getName()
+std::string const & HumanB::getName() const 
 {
     return this->_name;
 }
 
-Wwapon HumanB::getWeapon()
+Weapon HumanB::getWeapon() const
 {
-    return this->_weapon;
-}
-
-void HumanB::setName(std::string name)
-{
-    this->_name = name;
-}
-
-void HumanB::setWeapon(Weapon* weapon)
-{
-    this->_weapon = *weapon;
+    return *(this->_weapon);
 }
 
 void HumanB::attack( void ) const{
-    std::cout << this->getName() << " attacks with his " << this->getWeapon().getType();
+    std::cout << this->getName() << " attacks with his " << this->getWeapon().getType() << std::endl;
 }
 
+void HumanB::setWeapon(Weapon *weapon)
+{
+    this->_weapon = weapon;
+}

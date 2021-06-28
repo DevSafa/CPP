@@ -4,16 +4,21 @@
 
 int main()
 {
-    Weapon      club = Weapon("Crude spiked club");
-    HumanA      bob("Bob",club);
-    bob.attack();
-    club.setType("Some other type of club");
-    bob.attack();
-
+    {
+        Weapon      club = Weapon("Crude spiked club");
+        HumanA      bob("Bob",club);
+        bob.attack();
+        club.setType("Some other type of club");
+        bob.attack();
+    }
     std::cout << "----------------------" << std::endl;
-
-    Weapon      club1 = Weapon("crude spiked club");
-    HumanB jim("Jim");
-    jim.setWeapon(&club1);
-    jim.attack();
+    {
+    
+        Weapon club = Weapon("crude spiked club");
+        HumanB jim("Jim");
+        jim.setWeapon(&club);
+        jim.attack();
+        club.setType("some other type of club");
+        jim.attack();   
+    }
 }
