@@ -1,6 +1,4 @@
-#include "Contact.class.hpp"
-#include <iostream>
-
+#include "Contact.hpp"
 
 Contact::Contact( void ){
     if(Contact::_nbrContacts == 8)
@@ -8,7 +6,7 @@ Contact::Contact( void ){
     Contact::_nbrContacts +=1;
 }
 Contact::~Contact( void ){
-
+    //destructor
 }
 
 void Contact::setFirstName(std::string first_name){
@@ -38,11 +36,6 @@ std::string Contact::getLastName()const{
     return this->_last_name;
 }
 
-int Contact::getNbrContacts()
-{
-    return Contact::_nbrContacts;
-}
-
 std::string Contact::getNickName()const{
     return this->_nickname;
 }
@@ -54,5 +47,11 @@ std::string Contact::getPhoneNumber()const{
 std::string Contact::getDarkestSecret()const{
     return this->_darkest_secret;
 }
+
+int Contact::getNbrContacts()
+{
+    return Contact::_nbrContacts;
+}
+
 
 int Contact::_nbrContacts = 0;

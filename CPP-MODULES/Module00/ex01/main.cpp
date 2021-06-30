@@ -1,69 +1,64 @@
-#include <iostream>
-#include "Contact.class.hpp"
-#include "PhoneBook.class.hpp"
-#include <string>
+
+#include "PhoneBook.hpp"
+
 int main()
 {
-    int exit;
-    std::string command;
-    std::string first_name;
-    std::string last_name;
-    std::string nickname;
-    std::string phoneNumber;
-    std::string darkest_secret;
+	int			exit;
+	std::string	input;
+	int			index;
+	PhoneBook 	phoneBook;
 
-    PhoneBook phoneBook;
 
-    exit = 1;
-    //ctrl-D is end of file
-    while(!std::cin.eof() && exit == 1)
-    {
-       
-        std::cout << "Enter a command (ADD - SEARCH - EXIT) : " << std::endl;
-        std::cin >> command;
+	exit = 1;
+	while(!std::cin.eof() && exit == 1)
+	{
+		std::cout << BOLDRED << "ENTER A COMMAND (ADD - SEARCH - EXIT) : " << "\033[0m" << std::endl;
+		std::getline(std::cin , input) ;
+		if(input.compare("ADD") == 0)
+		{
+			Contact contact;
+			std::cout << BOLDGREEN << "First Name       : " << "\033[0m";
+			std::getline(std::cin , input);
+			contact.setFirstName(input);
 
-        if(command.compare("ADD") == 0)
-        {
-            Contact contact;
-            std::cout << "First Name : ";
-            std::cin >> first_name;
-            std::cout << std::endl;
-            contact.setFirstName(first_name);
+			std::cout << BOLDGREEN << "Last Name        : " << "\033[0m";
+			std::getline(std::cin , input);
+			contact.setLastName(input);
 
-            std::cout << "Last Name : ";
-            std::cin >> last_name;
-            std::cout << std::endl;
-            contact.setLastName(last_name);
+			std::cout << BOLDGREEN << "Nickname         : " << "\033[0m";
+			std::getline(std::cin , input);
+			contact.setNickname(input);
 
-            std::cout << "Nickname : ";
-            std::cin >> nickname;
-            std::cout << std::endl;
-            contact.setNickname(nickname);
+			std::cout << BOLDGREEN << "Phone Number     : " << "\033[0m";
+			std::getline(std::cin , input);
+			contact.setPhoneNumber(input);
 
-            std::cout << "Phone Number : ";
-            std::cin >> phoneNumber;
-            std::cout << std::endl;
-            contact.setPhoneNumber(phoneNumber);
+			std::cout << BOLDGREEN << "Darkest_Secret   : " << "\033[0m";
+			std::getline(std::cin , input);
+			contact.setDarkestSecret(input);
 
-            std::cout << "Darkest_Secret : ";
-            std::cin >> darkest_secret;
-            std::cout << std::endl;
-            contact.setDarkestSecret(darkest_secret);
-
-            phoneBook.add_contact(contact);
-        }
-        else if (command.compare("SEARCH") == 0)
-        {
-            phoneBook.display_contacts();
-        }
-        else if (command.compare("EXIT") == 0)
-            exit = 0;
-    }
-
-   // std::string mystring = "a very long long string";
-    //std::cout << std::truncate(mystring,8) << std::endl;
-   
-
-    
-    return 0; 
+			phoneBook.addContact(contact);
+		}
+		else if (input.compare("SEARCH") == 0)
+		{
+			phoneBook.displayContacts();
+			if( phoneBook.getnbrContacts()!= 0)
+			{
+				std::cout << BOLDRED << "Enter an index : " << "\033[0m" << std::endl ;
+				if(!(std::cin >> index))
+				{
+					std::cin.clear();
+					std::cout << BOLDYELLOW << "Invalid index!!!" << "\033[0m" <<std::endl;
+				}
+				else
+					phoneBook.getDataByIndex(index);
+				std::cin.ignore(10000, '\n');  
+			}
+		}
+		else if (input.compare("EXIT") == 0)
+			exit = 0;
+		else if(!std::cin.eof())
+			std::cout << BOLDYELLOW << "Invalid command!!!" << "\033[0m" << std::endl;
+	}
+	return 0; 
 }
