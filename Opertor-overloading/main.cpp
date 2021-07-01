@@ -1,4 +1,4 @@
-#include <iostream>
+
 #include "Position.hpp"
 
 int main()
@@ -18,5 +18,19 @@ int main()
         std::cout << "pos1 and pos2  are the same!" << std::endl;
     else
         std::cout << "pos1 and pos2 aren't the same!" << std::endl;
-     return 0;
+
+    std::cout << "-----------------\n";
+    std::cout << pos1 << std::endl; 
+    std::cout << "-----------------\n";
+    std::cout << pos2 << std::endl;
+    std::cout << "-----------------\n";
+    std::cout << pos3 << std::endl;
+
+    std::cout << "------------------------------\n";
+    Position pos4;
+
+    std::cin >> pos4 ;
+
+    std::cout << pos4;
+    return 0;
 }

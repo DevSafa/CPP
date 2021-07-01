@@ -1,5 +1,5 @@
 #include "Position.hpp"
-
+#include <iostream>
 void Position::setx(int x)
 {
     this->_x = x;
@@ -33,5 +33,31 @@ bool Position::operator == (Position pos)
         this->gety() == pos.gety())
         return true;
     return false;
+
+}
+
+//overloading the insertion operator
+std::ostream& operator << (std::ostream& output, Position pos)
+{
+    output << "[x] = " << pos.getx() << std::endl;
+    output << "[y] = " << pos.gety() << std::endl;
+
+    return output;
+}
+
+//overloading the extraction operator
+std::istream& operator >> (std::istream& input, Position &pos)
+{
+    int x ;
+    int y ;
+    std::cout << "x : ";
+    input >> x;
+    std::cout << "y : ";
+    input >> y;
+
+    pos.setx(x);
+    pos.sety(y);
+
+    return input;
 
 }
