@@ -1,6 +1,7 @@
 
 #include "Position.hpp"
 #include "Integer.hpp"
+#include "Canonical.hpp"
 int main()
 {
     Position pos1, pos2 ;
@@ -49,6 +50,19 @@ int main()
     // assignement of z instance on result of  x + y 
     z = x + y;
     std::cout << "Value of z : " << z << std::endl;
+
+    std::cout << "------------------------------\n";
+    Canonical instance1;
+    Canonical instance2(42);
+    Canonical instance3(instance1);
+
+    std::cout << instance1 << std::endl;
+    std::cout << instance2 << std::endl;
+    std::cout << instance3 << std::endl;
+    instance3 = instance2 ;
+
+    std::cout << instance3 << std::endl;
+    
     return 0;
 }
 
