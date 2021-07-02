@@ -20,6 +20,7 @@ Integer & Integer::operator=(Integer const & rhs) {
     std::cout << " to " << rhs.getValue() << std::endl;
 
     this->_n = rhs.getValue();
+    // to be able to return a reference to the current instance , i need to unreference this pointer to recover my reference
     return *this;
 }
 Integer Integer::operator+(Integer const & rhs) const {
@@ -32,4 +33,4 @@ Integer Integer::operator+(Integer const & rhs) const {
 std::ostream & operator <<(std::ostream & o , Integer const & rhs){
     o << rhs.getValue();
     return o;
-}0
+}

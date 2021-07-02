@@ -1,6 +1,6 @@
 
 #include "Position.hpp"
-
+#include "Integer.hpp"
 int main()
 {
     Position pos1, pos2 ;
@@ -27,10 +27,28 @@ int main()
     std::cout << pos3 << std::endl;
 
     std::cout << "------------------------------\n";
-    Position pos4;
+    //Position pos4;
 
-    std::cin >> pos4 ;
+   // std::cin >> pos4 ;
 
-    std::cout << pos4;
+    //std::cout << pos4;
+
+    std::cout << "------------------------------\n";
+    // 3 instances of Integer class
+    Integer x(30);
+    Integer y(10);
+    Integer z(0);
+
+    //calling overloadd of << operator
+    std::cout << "Value of x : " << x << std::endl;
+    std::cout << "Value of y : " << y << std::endl;
+    //calling overload of a ssignement operator
+    y = Integer( 12 );
+    std::cout << "Value of y : " << y << std::endl;
+    std::cout << "Value of z : " << z << std::endl;
+    // assignement of z instance on result of  x + y 
+    z = x + y;
+    std::cout << "Value of z : " << z << std::endl;
     return 0;
 }
+

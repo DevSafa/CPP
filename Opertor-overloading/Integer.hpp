@@ -27,6 +27,10 @@ class Integer {
         int _n;
 };
 
+// overload of the stream redirection operator
+// we can't use the syntax of member function to overload << 
+// we can't change the code of the ostream class
+// so we wiil overload a function and not a member function
 std::ostream & operator<<( std::ostream & o, Integer const &rhs);
 
 #endif
