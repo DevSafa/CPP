@@ -9,11 +9,11 @@
 class ScavTrap  : public ClapTrap{
     public:
         ScavTrap( void );
-        //ScavTrap(ScavTrap const & src );
+        ScavTrap(ScavTrap const & src );
         ScavTrap(std::string name );
-        // ~ScavTrap( void );
-
-        // ScavTrap & operator = (ScavTrap const & cpy);
+        ~ScavTrap( void );
+        void guardGate() ;
+        ScavTrap & operator = (ScavTrap const & cpy);
 
 };
 

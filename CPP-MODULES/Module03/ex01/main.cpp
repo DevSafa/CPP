@@ -2,27 +2,31 @@
 #include  "ScavTrap.hpp"
 int main()
 {
-    ScavTrap scavtrap;
+    // create  an instance of Scavtrap using default constructor
+    ScavTrap scavTrap1;
 
-    // //create an instance using default constructor
-    // ClapTrap clapTrap1;
-    // std::cout << clapTrap1;
+    std::cout << scavTrap1;
 
-    // //create an instance using Parametric constructor
-    // ClapTrap clapTrap2("Safa");
-    // std::cout << clapTrap2;
+    //create an instance using Parametric constructor
+    ScavTrap scavTrap2("imane");
+    std::cout << scavTrap2;
 
-    // //create instance using Copy constructor
-    // ClapTrap  clapTrap3(clapTrap2);
-    // std::cout << clapTrap3;
+    //create instance using Copy constructor
+    ScavTrap scavTrap3(scavTrap2);
+    std::cout << scavTrap3;
 
-    // //calling attack function
-    // clapTrap3.attack("personA");
+    //calling attack function memeber of base class
+    scavTrap3.attack("wall");
 
-    // //calling takeDamage function
-    // clapTrap3.takeDamage(5);
+    // call getters of base function on derived function
+    std::cout << "Name : " << scavTrap3.getName() << std::endl;
+    std::cout << "Energy points : " << scavTrap3.getEnergyPoints() << std::endl;
+    std::cout << "Hit points : " << scavTrap3.getHitPoints() << std::endl;
+    std::cout << "Attack damage : " << scavTrap3.getAttackDamage() << std::endl;
 
-    // //calling beRepaired function
-    // clapTrap3.beRepaired(5);
+
+    // calling guarGate() member of derived class
+    scavTrap3.guardGate();
+
     return 0;
 }

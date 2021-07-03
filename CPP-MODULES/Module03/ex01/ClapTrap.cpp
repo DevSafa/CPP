@@ -34,7 +34,7 @@ ClapTrap & ClapTrap::operator = (ClapTrap const &cpy ){
 }
 std::ostream &operator << (std::ostream & o , ClapTrap &clapTrap){
     std::cout << BOLDYELLOW << "operator overload (<<) " <<  "\033[0m" << std::endl;
-    std::cout << "-------------------" << std::endl;
+    std::cout << "----------clapTrap---------" << std::endl;
     o << "Name                  : " << clapTrap.getName() << std::endl;
     o << "Energy points         : " << clapTrap.getEnergyPoints() << std::endl;
     o << "Hit points            : " << clapTrap.getHitPoints() << std::endl;
