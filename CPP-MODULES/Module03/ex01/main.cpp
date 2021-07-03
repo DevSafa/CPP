@@ -17,6 +17,8 @@ int main()
 
     //calling attack function memeber of base class
     scavTrap3.attack("wall");
+    scavTrap3.takeDamage(4);
+    scavTrap3.beRepaired(4);
 
     // call getters of base function on derived function
     std::cout << "Name : " << scavTrap3.getName() << std::endl;

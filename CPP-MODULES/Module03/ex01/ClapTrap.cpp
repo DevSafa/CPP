@@ -64,25 +64,25 @@ int        ClapTrap::getAttackDamage( void ) const
 }
 
 void        ClapTrap::attack( std::string const & target ){
+    this->_hit_points--;
+    this->_energy_points--;
+
     std::cout << "FR4G-TP " << "<" << this->getName() << "> " ;
     std::cout << "attacks " << "<" << target << "> , ";
     std::cout << "causing " << "<" << this->getAttackDamage() << "> ";
     std::cout << "points of damage!" << std::endl;
+    this->_attack_damage++;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    //this->_attack_damage+=amount;
-    std::cout << "FR4G-TP " << "<" <<  this->getName() << "> " ;
-   // std::cout << "causing " << "<" << this->getAttackDamage() << "> ";
-   std::cout << "causing " << "<" << amount << "> ";
-    std::cout << "points of damage!" << std::endl;
+   this->_hit_points -=amount;
+    std::cout << "take damage" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    this->_attack_damage-=amount;
-    std::cout << "FR4G-TP " << "<" <<  this->getName() << "> " ;
-    std::cout << "repairing " << "<" << amount << "> ";
-    std::cout << "points of damage!" << std::endl;
+    this->_hit_points++;
+    std::cout << "be repaired" << std::endl;
+  
 }
