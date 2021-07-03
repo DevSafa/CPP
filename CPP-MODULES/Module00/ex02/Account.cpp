@@ -21,6 +21,7 @@ Account::Account( int initial_deposit ){
 }
 
 Account::~Account( void ){
+    _displayTimestamp();
    std::cout << "index:"<<this->_accountIndex << ";";
     std::cout << "amount:"<<this->_amount<< ";";
     std::cout << "closed"<< std::endl;
@@ -42,6 +43,7 @@ int Account::getNbWithdrawals( void ){
 }
 
 void Account::displayAccountsInfos( void ){
+    _displayTimestamp();
     std::cout << "accounts:" << _nbAccounts <<";";
     std::cout << "total:" << _totalAmount <<";";
     std::cout << "deposits:" << _totalNbDeposits << ";";
@@ -49,6 +51,7 @@ void Account::displayAccountsInfos( void ){
 }
 
 void Account::makeDeposit( int deposit ){
+    _displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";
     std::cout << "p_amount:" << this->_amount << ";";
     std::cout << "deposit:" <<deposit << ";";
@@ -61,6 +64,7 @@ void Account::makeDeposit( int deposit ){
 }
 
 bool Account::makeWithdrawal( int withdrawal ){
+    _displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";
     std::cout << "p_amount:" << this->_amount << ";";
     
@@ -80,10 +84,9 @@ bool Account::makeWithdrawal( int withdrawal ){
     return true;
 }
 
-
-
 void	Account::displayStatus( void ) const{
 
+    this->_displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";
     std::cout << "amount:" << this->_amount <<";";
     std::cout << "deposits:" <<this->_nbDeposits << ";";
@@ -92,15 +95,18 @@ void	Account::displayStatus( void ) const{
 
 void Account::_displayTimestamp( void )
 {
-    // std::time_t result = std::time(nullptr);
-    // std::cout <<std::asctime(std::localtime(&result))
-    //                 <<result << std::endl;
-    // time_t ttime = time(0);
-    // std::cout << "Number of seconds elapsed since January 1, 1990:" << ttime << std::endl;
-    // tm *local_time = localtime(&ttime);
-    
-    // std::cout << "Year: "<< 1900 + local_time->tm_year << std::endl;
-    // std::cout << "Month: "<< 1 + local_time->tm_mon<< std::endl;
-    // std::cout << "Day: "<< local_time->tm_mday << std::endl;
-    // std::cout << "Time: "<< 1 + local_time->tm_hour << ":";
+    std::time_t result = std::time(nullptr);
+    int  years = result / 31556952;
+    int  month = (result - years * 31556952) / 2592000;
+    int day  = (result - ((years * 31556952) + (month * 2592000)))/ 86400;
+    int rest = (result - ((years * 31556952) + (month * 2592000) + (day * 86400)));
+    std::cout <<"[" << years + 1970 ;
+    if(month <= 9)
+        std::cout <<"0" << month + 1 ;
+    else
+        std::cout << month + 1 ;
+    if (day <= 9)
+        std::cout << "0" << day - 1 << "_" << rest << "] ";
+    else
+        std::cout << day - 1 << "_" << rest << "] ";
 }
