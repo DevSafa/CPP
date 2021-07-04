@@ -47,7 +47,7 @@ Student::Student(int x):Person(x){
 }
 
 
-TA::TA(int x) : Student(x) , Faculty(x){
+TA::TA(int x) : Student(x) , Faculty(x) , Person(x) {
     std::cout<<"TA::TA(int ) called"<< std::endl;
 }
 
@@ -55,11 +55,12 @@ TA::TA(int x) : Student(x) , Faculty(x){
 int main(){
     C c;
     std::cout << "------------------" << std::endl;
-    //the Person constructor wwill be called one.
-    //one impotant thng to note is the default constructor of 'Person' is called 
-
-    // when we use virtual keyword , the default constructor of grandparent class is called by default even if the parent classes
-    //explicitly call parameterized constructor
+    
+    // to avoid that default constructor will be called 
+    //the constructor has to be called in 'TA' class 
+    // in general it is not allowed to call the grandparent's constructor directly , 
+    //it has to be called through parent class , it is allowed only when 'virtual keyword' is used
+    
     TA ta1(30);
     return 0;
 }
