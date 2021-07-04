@@ -25,14 +25,15 @@ class C : public B , public A //note the order
 class Person {
     public:
         Person(int x);
+        Person();
 };
 
-class Faculty : public Person {
+class Faculty : virtual  public Person {
     public :
         Faculty(int x);
 };
 
-class Student : public Person {
+class Student :  virtual public Person {
     public :
         Student(int x);
 };
