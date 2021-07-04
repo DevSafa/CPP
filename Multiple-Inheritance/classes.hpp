@@ -21,4 +21,24 @@ class C : public B , public A //note the order
 };
 
 
+//----------------------------------------
+class Person {
+    public:
+        Person(int x);
+};
+
+class Faculty : public Person {
+    public :
+        Faculty(int x);
+};
+
+class Student : public Person {
+    public :
+        Student(int x);
+};
+
+class TA : public Faculty, public Student {
+    public :
+        TA(int x);
+};
 #endif

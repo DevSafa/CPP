@@ -26,7 +26,33 @@ C::~C(){
     std::cout << "C's destructor called" << std::endl;
 }
 
+
+Person::Person(int x){
+     std::cout << "Person::Person(int ) called" << std::endl;
+}
+
+Faculty::Faculty(int x) : Person(x){
+    std::cout<<"Faculty::Faculty(int ) called"<< std::endl;
+}
+
+Student::Student(int x):Person(x){
+     std::cout<<"Student::Student(int ) called"<< std::endl;
+}
+
+TA::TA(int x) : Student(x) , Faculty(x){
+    std::cout<<"TA::TA(int ) called"<< std::endl;
+}
+
 int main(){
     C c;
+    std::cout << "------------------" << std::endl;
+
+    //constructor of Person is called two times
+    // destructor also will be called two times when object ta1 is destructed.
+
+    //so object ta1 has two copies of all members of Person, this causes ambiguities
+    //the solution to that problem is 'virtual keyword.
+    //we make the classes 'Faculty' and 'Student' as virtual base to avoid two copies of 'Person' in 'TA' class
+    TA ta1(30);
     return 0;
 }
