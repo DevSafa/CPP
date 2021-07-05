@@ -8,10 +8,11 @@ class Peon : public Victim {
         Peon(Peon const & src);
         ~Peon( void );
         Peon & operator = (Peon & src);
-        void getPolymorphed( void ) const;
+        virtual void getPolymorphed( void ) const;
     private:
         Peon( void );
 };
 
 
+// virtual means that the linkage will be dynamic
 #endif
