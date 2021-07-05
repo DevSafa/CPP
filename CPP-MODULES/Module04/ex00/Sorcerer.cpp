@@ -33,15 +33,18 @@ Sorcerer & Sorcerer::operator = (Sorcerer const & src){
 }
 
 void Sorcerer::birth( void ) const {
+    std::cout << BOLDYELLOW << "birth() (Sorcerer)" <<  "\033[0m" << std::endl;
     std::cout << this->_name << ", " << this->_title << ", is born" << std::endl;
 } 
 
 void Sorcerer::death( void ) const{
+    std::cout << BOLDYELLOW << "death() (Sorcerer)" <<  "\033[0m" << std::endl;
     std::cout << this->_name << ", " << this->_title << ", is dead.";
     std::cout << "Consequencs will never be the same!" << std::endl;
 }
 
 void Sorcerer::introduce( void ) const{
+    std::cout << BOLDYELLOW << "introduce() (Sorcerer)" <<  "\033[0m" << std::endl;
     std::cout << "I am " << this->_name << ", " << this->_title << ", " << "and I like ponies!" << std::endl;
 }
 

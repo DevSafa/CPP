@@ -26,6 +26,10 @@ int main(){
 
     std::cout << sorcer5;
     
+    // test fucntions of Sorcerer class
+    sorcer5.birth();
+    sorcer5.death();
+    sorcer5.introduce();
     std::cout << "---------------------" << std::endl;
 
 }
