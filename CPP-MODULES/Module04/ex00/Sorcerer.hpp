@@ -2,6 +2,7 @@
 # define SORCERER_H
 #include <iostream>
 #include <string>
+#include "Victim.hpp"
 
 #define BOLDGREEN   "\033[1m\033[32m" 
 #define BOLDRED     "\033[1m\033[31m"
@@ -18,9 +19,7 @@ class Sorcerer {
         std::string getName( void ) const;
         std::string getTitle( void ) const;
 
-        void birth( void ) const;
-        void death( void ) const;
-        void introduce( void ) const;
+        void polymorph(Victim const &) const ;
 
     private :
         Sorcerer( void );                               //canonical

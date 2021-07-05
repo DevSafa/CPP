@@ -18,11 +18,9 @@ class Victim {
         
         std::string getName( void ) const;
 
-        void birth( void ) const;
-        void death( void ) const;
-        void introduce( void ) const ;
-    
-    private :
+        virtual void getPolymorphed( void ) const;
+        
+    protected :
         Victim( void );
         std::string _name;
 
