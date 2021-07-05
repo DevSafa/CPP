@@ -1,4 +1,5 @@
 #include "Sorcerer.hpp"
+#include "Victim.hpp"
 
 int main(){
     // test Sorcerer class
@@ -31,6 +32,23 @@ int main(){
     sorcer5.death();
     sorcer5.introduce();
     std::cout << "---------------------" << std::endl;
+
+    Victim victim1("v1");
+    std::cout << victim1;
+
+    Victim victim2(victim1);
+    std::cout << victim2;
+
+    Victim victim3("v2");
+    Victim victim4("v3");
+
+    victim4 = victim3;
+    std::cout << victim4;
+
+    victim4.birth();
+    victim4.death();
+    victim4.introduce();
+    std::cout  << "----------------------" << std::endl;
 
 }
 
