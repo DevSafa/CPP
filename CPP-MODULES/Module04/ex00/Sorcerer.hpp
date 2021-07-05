@@ -28,5 +28,5 @@ class Sorcerer {
         std::string _title;
 };
 
-std::ostream & operator << (std::ostream  & o , Sorcerer sorcerer) ;
+std::ostream & operator << (std::ostream  & o , Sorcerer &sorcerer) ;
 #endif
