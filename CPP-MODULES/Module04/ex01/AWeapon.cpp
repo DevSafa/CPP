@@ -46,3 +46,7 @@ std::ostream & operator << (std::ostream & o , AWeapon & aweapon )
     o << "AP cost: " << aweapon.getAPCost();
     return o;
 }
+
+void         AWeapon::setDamage(int damage){
+    this->_damage -= damage;
+}

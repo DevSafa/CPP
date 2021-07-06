@@ -20,6 +20,7 @@ class AWeapon {
         std::string const  & getName( void ) const;
         int         getAPCost( void ) const;
         int         getDamage( void ) const;
+        void         setDamage(int);
     private:
         AWeapon( void );
 

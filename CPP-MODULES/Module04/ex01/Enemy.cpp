@@ -14,6 +14,8 @@ Enemy::Enemy(Enemy const & src){
 }
 void Enemy::setHP(int hp){
     this->_hp = hp;
+    if(this->_hp < 0)
+        this->_hp = 0;
 }
 
 Enemy & Enemy::operator = (Enemy const & src){
