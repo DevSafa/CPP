@@ -2,7 +2,11 @@
 
 
 
-PlasmaRifle::PlasmaRifle(std::string const & name, int apcost, int damage) : AWeapon("Plasma Rifle" , 5 , 21 ){
+// PlasmaRifle::PlasmaRifle(std::string const & name, int apcost, int damage) : AWeapon("Plasma Rifle" , 5 , 21 ){
+
+// }
+
+PlasmaRifle::PlasmaRifle( void ) : AWeapon("Plasma Rifle" , 5 , 21 ){
 
 }
 
@@ -24,7 +28,7 @@ PlasmaRifle & PlasmaRifle::operator = (PlasmaRifle const & src){
     return *this;
 }
 
-void PlasmaRifle::attack()
+void PlasmaRifle::attack() const 
 {
     std::cout << "* piouuu piouuu piouuu *" << std::endl;
 }
