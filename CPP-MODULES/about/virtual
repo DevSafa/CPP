@@ -1,0 +1,36 @@
+By default, C++ matches a function call with the correct function 
+definition at compile time. This is called static binding. 
+You can specify that the compiler match a function call with 
+the correct function definition at runtime; this is called 
+dynamic binding.
+
+declare a function with the keyword virtual if you want the compiler 
+to use dynamic binding for that specific function.
+
+
+The virtual keyword indicates to the compiler that it should choose 
+the appropriate definition of f() not by the type of reference, 
+but by the type of object that the reference refers to.
+
+Therefore, a virtual function is a member function you may redefine for other derived 
+classes, and can ensure that the compiler will call the redefined virtual function 
+for an object of the corresponding derived class.
+even if you call that function with a pointer or reference to a base class of the object.
+
+A class that declares or inherits a virtual function is called a polymorphic class.
+
+https://www.ibm.com/docs/en/i/7.3?topic=only-virtual-functions-c
+
+
+If your base class destructor is virtual then objects will be destructed 
+in a order(firstly derived object then base ). If your base class destructor 
+is NOT virtual then only base class object will get deleted(because pointer is 
+of base class "Base *myObj"). So there will be memory leak for derived object.
+
+
+To be simple, Virtual destructor is to destruct the resources in a proper order,
+ when you delete a base class pointer pointing to derived class object. Virtual keyword 
+ for destructor is necessary when you want different destructors should follow proper 
+ order while objects is being deleted through base class pointer.
+
+https://stackoverflow.com/questions/461203/when-to-use-virtual-destructors

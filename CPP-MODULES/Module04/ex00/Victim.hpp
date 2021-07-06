@@ -12,7 +12,7 @@ class Victim {
 
     public :
         Victim(std::string name);
-        ~Victim( void );
+        virtual  ~Victim( void );
         Victim( Victim const & src);
         Victim & operator = (Victim const &src);
         
