@@ -2,6 +2,7 @@
 #include "PlasmaRifle.hpp"
 #include "PowerFist.hpp"
 #include "Enemy.hpp"
+#include "SuperMutant.hpp"
 // #include "Character.hpp"
 // #include "RadScorpion.hpp"
 int main(){
@@ -57,6 +58,9 @@ int main(){
     std::cout << *enemy4;
     delete enemy4;
     
+    std::cout << "---------------------" << std::endl;
+    SuperMutant superMutant1;
+    SuperMutant *superMutant2 = new SuperMutant();
     std::cout << "---------------------" << std::endl;
     // Character* me = new Character("me");
     // std::cout << *me;

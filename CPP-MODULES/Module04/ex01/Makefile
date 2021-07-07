@@ -12,6 +12,7 @@ $(NAME):
 		PlasmaRifle.cpp \
 		PowerFist.cpp \
 		Enemy.cpp \
+		SuperMutant.cpp \
 		 -o $(NAME) 
 
 all : $(NAME)
