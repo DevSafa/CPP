@@ -3,29 +3,25 @@
 #include <iostream>
 #include <string>
 #include "Victim.hpp"
-
-#define BOLDGREEN   "\033[1m\033[32m" 
-#define BOLDRED     "\033[1m\033[31m"
-#define BOLDYELLOW  "\033[1m\033[33m"
-
 class Sorcerer {
-    public :
-        Sorcerer(Sorcerer const & src);                 //canonical
-        Sorcerer(std::string name, std::string title);
+    
+    public :            
+        Sorcerer(std::string const & name, std::string const & title);
+        Sorcerer(Sorcerer const & src);
         ~Sorcerer( void );
-        Sorcerer & operator = (Sorcerer const & cpy);   //canonical
+        Sorcerer & operator = (Sorcerer const & cpy);
 
-        //getetrs
         std::string getName( void ) const;
         std::string getTitle( void ) const;
 
         void polymorph(Victim const &) const ;
 
     private :
-        Sorcerer( void );                               //canonical
+        Sorcerer( void );
         std::string _name;
         std::string _title;
 };
+
 
 std::ostream & operator << (std::ostream  & o , Sorcerer &sorcerer) ;
 #endif

@@ -3,8 +3,9 @@
 #include "Victim.hpp"
 
 class Peon : public Victim {
+    
     public:
-        Peon(std::string name);
+        Peon(std::string  const & name);
         Peon(Peon const & src);
         ~Peon( void );
         Peon & operator = (Peon & src);
