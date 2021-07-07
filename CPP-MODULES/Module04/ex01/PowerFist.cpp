@@ -1,14 +1,11 @@
 #include "PowerFist.hpp"
 
-// PowerFist::PowerFist(std::string const & name, int apcost, int damage) : AWeapon("Power Fist" , 8 , 50 ){
-
-// }
 
 PowerFist::PowerFist(void ) : AWeapon("Power Fist" , 8 , 50 ){
 
 }
 PowerFist::~PowerFist( void ){
-
+    std::cout << "Destructor called(PowerFist)" << std::endl;
 }
 
 PowerFist::PowerFist(PowerFist const & src) :AWeapon(src){

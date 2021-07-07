@@ -12,15 +12,21 @@ class AWeapon {
 
     public:
         AWeapon(std::string const &name, int apcost, int damage);
+        // delete called on 'AWeapon' that is
+        // abstract but has non-virtual destructor error 
+        virtual ~AWeapon( void );
         AWeapon(AWeapon const & src);
         AWeapon & operator = (AWeapon const & src);
-        virtual ~AWeapon( void );
-        virtual void attack( void ) const = 0;
+        
 
         std::string const  & getName( void ) const;
         int         getAPCost( void ) const;
         int         getDamage( void ) const;
-        void         setDamage(int);
+        //'attack' is not virtual and
+        //cannot be declared pure
+        // must use keyword virtual
+        virtual void attack( void ) const = 0;
+        
     private:
         AWeapon( void );
 

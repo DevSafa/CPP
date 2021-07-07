@@ -4,11 +4,11 @@
 #include <iostream>
 #include <string>
 #include "AWeapon.hpp"
+
 class PowerFist : public AWeapon {
 
     public :
         PowerFist( void );
-        //PowerFist(std::string const & name, int apcost, int damage);
         ~PowerFist( void );
         PowerFist( PowerFist const & src);
         PowerFist & operator = (PowerFist const & src);

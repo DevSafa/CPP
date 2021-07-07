@@ -1,8 +1,8 @@
 #include "Enemy.hpp"
 
-Enemy::Enemy( int hp, std::string const & type) : _type(type){
+Enemy::Enemy( int hp, std::string const & type) {
     this->_hp = hp;
-    //this->_type = type;
+    this->_type = type;
 }
 
 Enemy::Enemy( void ){
@@ -12,11 +12,7 @@ Enemy::Enemy( void ){
 Enemy::Enemy(Enemy const & src){
     *this= src;
 }
-void Enemy::setHP(int hp){
-    this->_hp = hp;
-    if(this->_hp < 0)
-        this->_hp = 0;
-}
+
 
 Enemy & Enemy::operator = (Enemy const & src){
     if(this != &src)
@@ -36,11 +32,20 @@ int Enemy::getHP() const{
 }
 
 void Enemy::takeDamage(int damage) {
-    if (damage > 0)
-        this->_hp--;
+    if (damage < 0)
+	    return ;
+    this->_hp -= damage;
     if(this->_hp < 0)
         this->_hp = 0;
 }
 Enemy::~Enemy( void ){
+    std::cout << "destructor called (enemy)" << std::endl;
+}
 
+std::ostream  & operator << (std::ostream &  o, Enemy & enemy){
+
+    o << "hp : " << enemy.getHP() << std::endl;
+    o << "type : " << enemy.getType() << std::endl;
+
+    return o;
 }
