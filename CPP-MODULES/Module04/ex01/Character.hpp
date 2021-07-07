@@ -4,11 +4,14 @@
 #include <iostream>
 #include "AWeapon.hpp"
 #include "Enemy.hpp"
+
 class Character {
+
     private :
         std::string _name;
         int _ap;
         AWeapon *_weapon;
+        
     public :
         Character(std::string const & name);
         ~Character( void );

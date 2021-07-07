@@ -13,6 +13,7 @@ SuperMutant::SuperMutant(SuperMutant const & src) : Enemy(src){
     *this = src;
 }
 void SuperMutant::takeDamage(int damage) {
+    //std::cout << "takeDamage() : SuperMutant" << std::endl;
     damage = damage - 3 ;
     if (damage < 0)
 	    return ;

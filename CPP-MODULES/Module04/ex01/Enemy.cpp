@@ -32,6 +32,7 @@ int Enemy::getHP() const{
 }
 
 void Enemy::takeDamage(int damage) {
+    //std::cout << "takeDamage() : Enemy" << std::endl;
     if (damage < 0)
 	    return ;
     this->_hp -= damage;
