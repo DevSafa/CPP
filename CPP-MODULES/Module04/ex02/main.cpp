@@ -1,6 +1,6 @@
 #include "AssaultTerminator.hpp"
 #include "TacticalMarine.hpp"
-
+#include "Squad.hpp"
 int main(){
 
     ISpaceMarine *bob = new AssaultTerminator;
@@ -21,8 +21,8 @@ int main(){
     jim->meleeAttack();
 
     std::cout << "-------------------"<< std::endl;
-    delete bob ;
-    delete jim;
+   // delete bob ;
+    //delete jim;
     std::cout << "-------------------"<< std::endl;
 
     AssaultTerminator a1;
@@ -37,7 +37,51 @@ int main(){
 
     ISpaceMarine *spaceMarine1 = new TacticalMarine;
     ISpaceMarine *spaceMarine2 = new TacticalMarine;
+
+    std::cout << "-------------------"<< std::endl;
+
+    spaceMarine1->battleCry();
+    spaceMarine1->rangedAttack();
+    spaceMarine1->meleeAttack();
+    std::cout << "-------------------"<< std::endl;
+
+    ISpaceMarine *spaceMarine3 = spaceMarine1->clone();
+
+    spaceMarine3->battleCry();
+    spaceMarine3->rangedAttack();
+    spaceMarine3->meleeAttack();
+
+    std::cout << "-------------------"<< std::endl;
     delete spaceMarine1;
     delete spaceMarine2;
+    delete spaceMarine3;
+    std::cout << "-------------------"<< std::endl;
+
+    Squad squad;
+
+    //std::cout << "getCount() : " <<  squad.getCount() << std::endl;
+    //std::cout << "getUnits() : " <<  squad.getUnit(0) << std::endl;
+    squad.push(bob);
+    squad.push(jim);
+   // std::cout <<"count : " <<  squad.getCount() << std::endl;
+    // squad.getUnit(0);
+   // (squad.getUnit(0));
+   std::cout << "getCount() : " <<  squad.getCount() << std::endl;
+   std::cout << "getUnits() : " <<  squad.getUnit(0) << std::endl;
+//    int i = 0;
+//     while(i < squad.getCount())
+//     {
+//         (squad._units[0])->battleCry();
+//         i++;
+//     }
+   //squad.getUnit(0)->battleCry();
+    // while(i < squad.getCount())
+    // {
+    //     (squad.getUnit(i))->battleCry();
+    //     (squad.getUnit(i))->battleCry();
+    //     (squad.getUnit(i))->rangedAttack();
+    //     (squad.getUnit(i))->meleeAttack();
+    //     i++;
+    // }
     std::cout << "-------------------"<< std::endl;
 }
