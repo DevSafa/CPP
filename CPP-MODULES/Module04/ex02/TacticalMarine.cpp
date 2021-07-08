@@ -1,34 +1,34 @@
-#include " TacticalMarine.hpp"
+#include "TacticalMarine.hpp"
 
 
 TacticalMarine:: TacticalMarine( void ){
-    std::cout << "* teleports from space *" << std::endl;
+    std::cout << "Tactical Marine ready for battle!" << std::endl;
 }
 
  TacticalMarine::~ TacticalMarine( void ){
-    std::cout << "I’ll be back..." << std::endl;
+    std::cout << "Aaargh..." << std::endl;
 }
 
- TacticalMarine:: TacticalMarine( TacticaLMarine const & src){
+ TacticalMarine::TacticalMarine( TacticalMarine const & src){
     *this = src;
 }
 
- TacticalMarine &  TacticalMarine::operator = ( TacticalMarine const & src){
-    *this = src;
+ TacticalMarine const &  TacticalMarine::operator = ( TacticalMarine const & src){
+    return src;
 }
 
-ISpaceMarine *  TacticalMarine::clone(){
-    return *this;
+ISpaceMarine *  TacticalMarine::clone() const {
+    return new TacticalMarine(*this);
 }
 
 void  TacticalMarine::battleCry() const {
-    std::cout << "This code is unclean. PURIFY IT!" << std::endl;
+    std::cout << "For the holy PLOT!" << std::endl;
 }
 
 void  TacticalMarine::rangedAttack() const {
-    std::cout << "* does nothing *" << std::endl;
+    std::cout << "* attacks with a bolter *" << std::endl;
 }
 
 void  TacticalMarine::meleeAttack() const {
-    std::cout << "* attacks with chainfists *" << std::endl;
+    std::cout << "* attacks with a chainsword *" << std::endl;
 }
