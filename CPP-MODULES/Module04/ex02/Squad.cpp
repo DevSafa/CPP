@@ -6,11 +6,17 @@ Squad::Squad( void ){
 }
 
 Squad::~Squad( void ){
-
+    for(int i = 0 ; i < this->_count ; i++)
+        delete this->_units[i];
+    delete this->_units;
 }
 
-Squad::Squad(Squad const & src){
-    *this = src;
+Squad::Squad(Squad const & src)
+{
+   this->_count = 0;
+    this->_units = NULL;
+    for(int i = 0; i < src.getCount() ; i++)
+        this->push(src.getUnit(i)->clone());
 }
 
 int Squad::getCount() const {
@@ -20,10 +26,7 @@ int Squad::getCount() const {
 ISpaceMarine *Squad::getUnit(int i) const {
 
    if(i >= 0 && i < this->getCount())
-   {
-      
         return this->_units[i];
-   }
    return NULL;
 }
 
@@ -43,7 +46,6 @@ int Squad::push(ISpaceMarine* unit)
 
     if(this->_units == NULL)
     {
-        std::cout << "first" << std::endl;
         new_array = new ISpaceMarine*[1];
         new_array[0] = unit;
     }
@@ -53,9 +55,11 @@ int Squad::push(ISpaceMarine* unit)
         for(i = 0 ; i < this->_count ; i++)
             new_array[i] = this->_units[i];
         new_array[i] = unit;
-  
+
     }
     delete[] this->_units;
+    //delete this->_units[0];
+    //delete this->_units[1];
     this->_units = new_array;
     this->_count++;
     return this->_count;

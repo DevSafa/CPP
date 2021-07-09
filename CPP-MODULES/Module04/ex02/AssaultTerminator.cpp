@@ -6,17 +6,17 @@ AssaultTerminator::AssaultTerminator( void ){
 
 AssaultTerminator::~AssaultTerminator( void )
 {
-    std::cout << "I’ll be back..." << std::endl;
+    std::cout << "I'll be back..." << std::endl;
 }
 
 AssaultTerminator::AssaultTerminator(AssaultTerminator const  & src){
     *this = src;
-   
 }
 
-AssaultTerminator const  & AssaultTerminator::operator = (AssaultTerminator  const  & src){
-    std::cout << "overload AssaultTerminator" << std::endl;
-    return  src ;
+AssaultTerminator  & AssaultTerminator::operator = (AssaultTerminator  const  & src){
+  //  std::cout << "overload AssaultTerminator" << std::endl;
+    //return  src ;
+    return *this;
 }
 
 ISpaceMarine * AssaultTerminator::clone() const {

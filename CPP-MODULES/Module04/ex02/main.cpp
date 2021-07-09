@@ -1,72 +1,135 @@
 #include "AssaultTerminator.hpp"
 #include "TacticalMarine.hpp"
 #include "Squad.hpp"
+
+#define BOLDWHITE   "\033[1m\033[37m" 
+#define BOLDGREEN   "\033[1m\033[32m" 
+#define BOLDRED     "\033[1m\033[31m"
+#define BOLDYELLOW  "\033[1m\033[33m"
+
 int main(){
 
-     ISpaceMarine *bob = new AssaultTerminator;
-    ISpaceMarine *jim = bob->clone();
-    std::cout << "address of bob : " << bob << std::endl;
-    std::cout << "address of jim  : " << jim << std::endl;
+    std::cout << "\n--------- create instances of AssaultTerminator in heap ----------\n" <<  std::endl;
 
-    std::cout << "-------------------"<< std::endl;
+    ISpaceMarine *bin = new AssaultTerminator;
+    ISpaceMarine *din = bin->clone();
+    std::cout << "address of bin : " << bin << std::endl;
+    std::cout << "address of din : " << din << std::endl;
 
-    bob->battleCry();
-    bob->rangedAttack();
-    bob->meleeAttack();
+    std::cout <<"\n--------- call AssaultTerminator methods ----------\n" <<  std::endl;
 
-    std::cout << "-------------------"<< std::endl;
+    bin->battleCry();
+    bin->rangedAttack();
+    bin->meleeAttack();
 
-    jim->battleCry();
-    jim->rangedAttack();
-    jim->meleeAttack();
+    std::cout << "\n--------- call cloned AssaultTerminator methods ----------\n" <<  std::endl;
 
-    std::cout << "-------------------"<< std::endl;
-   // delete bob ;
-    //delete jim;
-    std::cout << "-------------------"<< std::endl;
+    din->battleCry();
+    din->rangedAttack();
+    din->meleeAttack();
 
+    std::cout <<  "\n--------- delete instances (bin - din) ----------\n" <<   std::endl;
+    delete bin ;
+    delete din;
+
+    std::cout << "\n--------- create instances of AssaultTerminator in stack ----------\n" <<  std::endl;
+    
     AssaultTerminator a1;
+
+    std::cout << "\n--------- call AssaultTerminator methods ----------\n" << std::endl;
+    
     a1.battleCry();
     a1.rangedAttack();
     a1.meleeAttack();
+
+    std::cout <<  "\n--------- cloning a stack instance and returning heap instance  + delete ----------\n" <<  std::endl;
+    
     ISpaceMarine *a2 = a1.clone();
     std::cout << "address of a1  : "  << &a1 << std::endl;
     std::cout << "address of a2  : " << a2 << std::endl;
     delete a2;
-    std::cout << "-------------------"<< std::endl;
+    
+    std::cout << "\n--------- create TacticalMarine instances in heap ----------\n" << std::endl;
 
     ISpaceMarine *spaceMarine1 = new TacticalMarine;
     ISpaceMarine *spaceMarine2 = new TacticalMarine;
 
-    std::cout << "-------------------"<< std::endl;
+    std::cout <<  "\n--------- called methods of TacticalMarine ----------\n" <<  std::endl;
 
     spaceMarine1->battleCry();
     spaceMarine1->rangedAttack();
     spaceMarine1->meleeAttack();
-    std::cout << "-------------------"<< std::endl;
+
+    std::cout <<  "\n--------- cloning a Tactical Marine + calling methods ----------\n" << std::endl;
 
     ISpaceMarine *spaceMarine3 = spaceMarine1->clone();
 
     spaceMarine3->battleCry();
     spaceMarine3->rangedAttack();
     spaceMarine3->meleeAttack();
-    std::cout << "-------------------"<< std::endl;
-    Squad *squad = new Squad;
-    squad->push(bob);
-    squad->push(jim);
-    squad->push(bob);
-    squad->push(&a1);
-    squad->push(spaceMarine1);
-    squad->push(spaceMarine2);
-    int i = 0;
-    while (i < squad->getCount())
+
+    std::cout << "\n--------- delete tacticalMarines instances----------\n" << std::endl;
+    delete spaceMarine1 ;
+    delete spaceMarine2;
+    delete spaceMarine3;
+
+    std::cout <<  "\n--------- end----------\n" <<  std::endl;
+    ISpaceMarine* bob = new TacticalMarine;
+    ISpaceMarine* jim = new AssaultTerminator;
+   
+
+    Squad *squad1 = new Squad();
+    squad1->push(bob);
+    squad1->push(jim);
+    std::cout <<  "\n-------- Squad(squad1) ----------\n" <<   std::endl;
+    
+    for(int i=0 ; i < squad1->getCount() ; i++ )
     {
-         (squad->getUnit(i))->battleCry();
-         (squad->getUnit(i))->rangedAttack();
-         (squad->getUnit(i))->meleeAttack();
-         std::cout << "**************" << std::endl;
-         i++;
+        ISpaceMarine * unit = squad1->getUnit(i);
+        unit->battleCry();
+        unit->rangedAttack();
+        unit->meleeAttack();
+        if(i != squad1->getCount() - 1)
+            std::cout << "======" << std::endl;
     }
 
-    std::cout << "-------------------"<< std::endl;
+    TacticalMarine* jack = new TacticalMarine;
+    ISpaceMarine* matya = bob->clone();
+   
+    //copy constructor.
+    Squad *squad2 = new Squad(*squad1);
+    squad2->push(jack);
+    squad2->push(matya);
+    //squad2->push(bob);
+    squad2->push(jack);
+    std::cout <<  "\n--------Squad(squad2)----------\n" << std::endl;
+    for(int i=0 ; i < squad2->getCount() ; i++ )
+    {
+        ISpaceMarine * unit = squad2->getUnit(i);
+        unit->battleCry();
+        unit->rangedAttack();
+        unit->meleeAttack();
+        if(i != squad2->getCount() - 1)
+            std::cout << "======" << std::endl;
+    }
+    delete squad1;
+    delete squad2;
+    std::cout << "\n--------Squad(vlc)----------\n" <<   std::endl;
+
+    ISpaceMarine* bob1 = new TacticalMarine;
+    ISpaceMarine* jim1 = new AssaultTerminator;
+    ISquad* vlc = new Squad;
+    vlc->push(bob1);
+    vlc->push(jim1);
+    for (int i = 0; i < vlc->getCount(); ++i)
+    {
+        ISpaceMarine* cur = vlc->getUnit(i);
+        cur->battleCry();
+        cur->rangedAttack();
+        cur->meleeAttack();
+    }
+    delete vlc;
+    std::cout <<  "\n--------end(vlc)----------\n" <<   std::endl;
+
+    return 0;
 }

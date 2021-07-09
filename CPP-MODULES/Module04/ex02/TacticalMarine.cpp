@@ -14,7 +14,7 @@ TacticalMarine:: TacticalMarine( void ){
 }
 
  TacticalMarine const &  TacticalMarine::operator = ( TacticalMarine const & src){
-     std::cout << "overload AssaultTerminator" << std::endl;
+     //std::cout << "overload AssaultTerminator" << std::endl;
     return src;
 }
 
