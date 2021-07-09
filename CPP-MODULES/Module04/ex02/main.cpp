@@ -131,5 +131,29 @@ int main(){
     delete vlc;
     std::cout <<  "\n--------end(vlc)----------\n" <<   std::endl;
 
+    std::cout << "\n-------- test copy constructor AssaultTerminator ----------\n" <<   std::endl;
+
+    AssaultTerminator *assaultTerminator1 = new AssaultTerminator();
+    assaultTerminator1->battleCry();
+    assaultTerminator1->rangedAttack();
+    assaultTerminator1->meleeAttack();
+
+    std::cout << "=======" << std::endl;
+
+    AssaultTerminator *assaultTerminator2 = new AssaultTerminator(*assaultTerminator1);
+    assaultTerminator1->battleCry();
+    assaultTerminator1->rangedAttack();
+    assaultTerminator1->meleeAttack();
+    
+    std::cout << "=======" << std::endl;
+
+    std::cout << "address of assaultTerminator1 :" << assaultTerminator1 << std::endl;
+    std::cout << "address of assaultTerminator2 :" << assaultTerminator2 << std::endl;
+
+    delete assaultTerminator1;
+    delete assaultTerminator2;
+    std::cout <<  "\n--------end----------\n" <<   std::endl;
+
+
     return 0;
 }
