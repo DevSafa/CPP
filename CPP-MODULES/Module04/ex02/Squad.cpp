@@ -30,6 +30,26 @@ ISpaceMarine *Squad::getUnit(int i) const {
    return NULL;
 }
 
+Squad & Squad::operator = ( Squad const & src){
+    if (this == &src)
+        return *this;
+    ISpaceMarine **new_array = new ISpaceMarine*[src.getCount()];
+    for (int i = 0 ; i < src.getCount() ; i++)
+    {
+        
+        new_array[i] = src.getUnit(i)->clone();
+    }
+
+    for(int i = 0 ; i < this->getCount() ; i++)
+    {
+       delete this->_units[i];
+    }
+    delete this->_units;
+    this->_count = src.getCount();
+    this->_units = new_array;
+    return *this;
+}
+
 
 int Squad::push(ISpaceMarine* unit)
 {
@@ -58,8 +78,6 @@ int Squad::push(ISpaceMarine* unit)
 
     }
     delete[] this->_units;
-    //delete this->_units[0];
-    //delete this->_units[1];
     this->_units = new_array;
     this->_count++;
     return this->_count;

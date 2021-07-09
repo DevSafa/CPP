@@ -13,7 +13,7 @@ class Squad  : public ISquad{
         Squad( void );
         ~Squad( void );
         Squad(Squad const & src);
-        //Squad & opeartor = (Squad const & src);
+        Squad & operator = (Squad const & src);
         int getCount() const ;
         ISpaceMarine* getUnit(int) const ;
         int push(ISpaceMarine*);

@@ -10,12 +10,12 @@ TacticalMarine:: TacticalMarine( void ){
 }
 
  TacticalMarine::TacticalMarine( TacticalMarine const & src){
-    *this = src;
+    std::cout << "Tactical Marine ready for battle!" << std::endl;
+    *this = *this;
 }
 
- TacticalMarine const &  TacticalMarine::operator = ( TacticalMarine const & src){
-     //std::cout << "overload AssaultTerminator" << std::endl;
-    return src;
+ TacticalMarine  &  TacticalMarine::operator = ( TacticalMarine const & src){
+    return *this;
 }
 
 ISpaceMarine *  TacticalMarine::clone() const {
