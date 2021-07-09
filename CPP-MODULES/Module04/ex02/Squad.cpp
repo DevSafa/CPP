@@ -74,7 +74,7 @@ int Squad::push(ISpaceMarine* unit)
         new_array = new ISpaceMarine*[this->_count + 1];
         for(i = 0 ; i < this->_count ; i++)
             new_array[i] = this->_units[i];
-        new_array[i] = unit;
+        new_array[i] = unit->clone();
 
     }
     delete[] this->_units;
