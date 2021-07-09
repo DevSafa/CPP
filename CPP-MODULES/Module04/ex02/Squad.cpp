@@ -18,55 +18,46 @@ int Squad::getCount() const {
 }
 
 ISpaceMarine *Squad::getUnit(int i) const {
-    
-    if(i >= 0 && i <= this->getCount())
-    {
-        
-  
-       //this->_units[0]->battleCry();
+
+   if(i >= 0 && i < this->getCount())
+   {
+      
         return this->_units[i];
-    }
-    return NULL;
+   }
+   return NULL;
 }
+
 
 int Squad::push(ISpaceMarine* unit)
 {
-    int i = 0;
+    ISpaceMarine ** new_array;
+    int i ;
     if(unit == NULL)
         return this->_count;
+    for(i = 0; i < this->_count ; i++)
+    {
+        if(this->_units[i] == unit)
+            return this->_count;
+        i++;
+    }
+
     if(this->_units == NULL)
     {
-        ISpaceMarine *new_array[1];
+        std::cout << "first" << std::endl;
+        new_array = new ISpaceMarine*[1];
         new_array[0] = unit;
-        this->_units = new_array;
-        i = 1;
     }
     else if (this->_units != NULL)
     {
-       
-        while (i < this->_count)
-        {
-            if(this->_units[i] == unit)
-                return this->_count;
-            i++;
-        }
-        ISpaceMarine *new_array[this->_count + 1];
-        i = 0;
-        while(i < this->_count)
-        {
-             new_array[i] = this->_units[i];
-             new_array[i]->battleCry();
-             i++;
-        }
+        new_array = new ISpaceMarine*[this->_count + 1];
+        for(i = 0 ; i < this->_count ; i++)
+            new_array[i] = this->_units[i];
         new_array[i] = unit;
-        new_array[i]->battleCry();
-        this->_units = new_array;
-       this->getUnit(0)->battleCry();
-       this->getUnit(1)->battleCry();
+  
     }
-
-    this->_count = this->_count +  i;
-   
+    delete[] this->_units;
+    this->_units = new_array;
+    this->_count++;
     return this->_count;
 }
 

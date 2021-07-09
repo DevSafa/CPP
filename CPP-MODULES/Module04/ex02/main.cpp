@@ -3,7 +3,7 @@
 #include "Squad.hpp"
 int main(){
 
-    ISpaceMarine *bob = new AssaultTerminator;
+     ISpaceMarine *bob = new AssaultTerminator;
     ISpaceMarine *jim = bob->clone();
     std::cout << "address of bob : " << bob << std::endl;
     std::cout << "address of jim  : " << jim << std::endl;
@@ -50,38 +50,23 @@ int main(){
     spaceMarine3->battleCry();
     spaceMarine3->rangedAttack();
     spaceMarine3->meleeAttack();
-
     std::cout << "-------------------"<< std::endl;
-    delete spaceMarine1;
-    delete spaceMarine2;
-    delete spaceMarine3;
-    std::cout << "-------------------"<< std::endl;
+    Squad *squad = new Squad;
+    squad->push(bob);
+    squad->push(jim);
+    squad->push(bob);
+    squad->push(&a1);
+    squad->push(spaceMarine1);
+    squad->push(spaceMarine2);
+    int i = 0;
+    while (i < squad->getCount())
+    {
+         (squad->getUnit(i))->battleCry();
+         (squad->getUnit(i))->rangedAttack();
+         (squad->getUnit(i))->meleeAttack();
+         std::cout << "**************" << std::endl;
+         i++;
+    }
 
-    Squad squad;
-
-    //std::cout << "getCount() : " <<  squad.getCount() << std::endl;
-    //std::cout << "getUnits() : " <<  squad.getUnit(0) << std::endl;
-    squad.push(bob);
-    squad.push(jim);
-   // std::cout <<"count : " <<  squad.getCount() << std::endl;
-    // squad.getUnit(0);
-   // (squad.getUnit(0));
-   std::cout << "getCount() : " <<  squad.getCount() << std::endl;
-   std::cout << "getUnits() : " <<  squad.getUnit(0) << std::endl;
-//    int i = 0;
-//     while(i < squad.getCount())
-//     {
-//         (squad._units[0])->battleCry();
-//         i++;
-//     }
-   //squad.getUnit(0)->battleCry();
-    // while(i < squad.getCount())
-    // {
-    //     (squad.getUnit(i))->battleCry();
-    //     (squad.getUnit(i))->battleCry();
-    //     (squad.getUnit(i))->rangedAttack();
-    //     (squad.getUnit(i))->meleeAttack();
-    //     i++;
-    // }
     std::cout << "-------------------"<< std::endl;
 }

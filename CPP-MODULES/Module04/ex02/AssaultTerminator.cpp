@@ -15,6 +15,7 @@ AssaultTerminator::AssaultTerminator(AssaultTerminator const  & src){
 }
 
 AssaultTerminator const  & AssaultTerminator::operator = (AssaultTerminator  const  & src){
+    std::cout << "overload AssaultTerminator" << std::endl;
     return  src ;
 }
 
