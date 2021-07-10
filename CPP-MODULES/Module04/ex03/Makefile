@@ -12,6 +12,7 @@ $(NAME):
 		Cure.cpp \
 		AMateria.cpp \
 		Character.cpp \
+		MateriaSource.cpp \
 		 -o $(NAME) 
 
 all : $(NAME)
