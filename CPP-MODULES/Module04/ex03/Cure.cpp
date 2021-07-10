@@ -1,8 +1,8 @@
 #include "Cure.hpp"
 
 
-Cure::Cure( void ){
-    AMAteria("cure");
+Cure::Cure( void ) :AMateria("cure"){
+   // AMateria("cure");
 }
 
 Cure::Cure(Cure const & src){
@@ -16,7 +16,7 @@ Cure::~Cure( void ){
 
 Cure & Cure::operator = ( Cure const & src){
     if (this != &src)
-        this->_xp = src.getXP
+        this->_xp = src.getXP();
     return *this;
 
 }
@@ -26,6 +26,6 @@ AMateria *Cure::clone() const{
 }
 
 void Cure::use(ICharacter & target) {
-    AMAteria::use(target);
+    AMateria::use(target);
     std::cout << "* heals NAME’s wounds *" << std::endl;
 }

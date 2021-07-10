@@ -2,7 +2,7 @@
 # define "CHARACTER_H"
 #include <iostream>
 #include <string>
-
+class AMateria;
 class Character : public ICharacter {
     private:
         AMateria **materias;

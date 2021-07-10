@@ -1,7 +1,7 @@
-#include "Ice.cpp"
+#include "Ice.hpp"
 
-Ice::Ice( void ){
-    AMAteria("ice");
+Ice::Ice( void ) :  AMateria("ice"){
+   
 }
 
 Ice::Ice(Ice const & src){
@@ -14,7 +14,7 @@ Ice::Ice(Ice const & src){
 Ice::~Ice( void ){
 
 }
-obj = obj
+
 Ice & Ice::operator = (Ice const & src) {
    if(this != &src)
    {
@@ -28,6 +28,6 @@ AMateria *Ice::clone() const {
 }
 
 void Ice::use(ICharacter & target){
-    AMAteria::use(target);
+    AMateria::use(target);
     std::cout << "* shoots an ice bolt at NAME *" << std::endl;
 }
