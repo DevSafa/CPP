@@ -11,6 +11,7 @@ $(NAME):
 		Ice.cpp \
 		Cure.cpp \
 		AMateria.cpp \
+		Character.cpp \
 		 -o $(NAME) 
 
 all : $(NAME)
