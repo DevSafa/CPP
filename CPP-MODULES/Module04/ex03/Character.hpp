@@ -22,4 +22,6 @@ class Character : public ICharacter {
         void use(int idx, ICharacter & target);
 };
 
+std::ostream & operator << (std::ostream & o , Character const & character);
+
 #endif
