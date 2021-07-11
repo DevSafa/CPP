@@ -8,6 +8,7 @@
 class Character : public ICharacter {
     private:
         std::string _name;
+        // i can do AMateria *_materias[4] , and fill it in start
         AMateria **_materias;
         Character( void );
     public :

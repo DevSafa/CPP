@@ -5,9 +5,9 @@ Cure::Cure( void ) :AMateria("cure"){
    // AMateria("cure");
 }
 
-Cure::Cure(Cure const & src){
-    this->_type = src.getType();
-    this->_xp = src.getXP();
+Cure::Cure(Cure const & src) :AMateria(src){
+    // this->_type = src.getType();
+    // this->_xp = src.getXP();
 }
 
 Cure::~Cure( void ){
@@ -15,8 +15,9 @@ Cure::~Cure( void ){
 }
 
 Cure & Cure::operator = ( Cure const & src){
-    if (this != &src)
-        this->_xp = src.getXP();
+    // if (this != &src)
+    //     this->_xp = src.getXP();
+    AMateria::operator=(src);
     return *this;
 
 }

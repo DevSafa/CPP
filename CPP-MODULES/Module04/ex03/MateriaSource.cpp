@@ -28,14 +28,19 @@ MateriaSource & MateriaSource::operator = (MateriaSource const & src){
     if(this != &src)
     {
         for(int i = 0 ; i < 4 ; i++)
-            delete this->_src[i];
+        {
+            if(this->_src[i] != NULL)
+                delete this->_src[i];
+        }
         for(int i = 0; i < 4 ; i++)
-           this->_src[i] = src.getMateria(i)->clone();
+           this->_src[i] = src._src[i]->clone();
     }
     return *this;
 }
 
 void MateriaSource::learnMateria(AMateria *m){
+    if(m == NULL)
+        return;
     for(int i = 0; i < 4 ; i++)
     {
         if(this->_src[i] == NULL)

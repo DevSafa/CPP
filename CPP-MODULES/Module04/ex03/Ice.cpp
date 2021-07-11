@@ -4,10 +4,10 @@ Ice::Ice( void ) :  AMateria("ice"){
    
 }
 
-Ice::Ice(Ice const & src){
+Ice::Ice(Ice const & src) :  AMateria(src){
   
-    this->_type = src.getType();
-    this->_xp = src.getXP();
+    // this->_type = src.getType();
+    // this->_xp = src.getXP();
 
 }
 
@@ -16,11 +16,12 @@ Ice::~Ice( void ){
 }
 
 Ice & Ice::operator = (Ice const & src) {
-   if(this != &src)
-   {
-        this->_type = src.getType();
-        this->_xp = src.getXP();
-   }
+//    if(this != &src)
+//    {
+//         this->_type = src.getType();
+//         this->_xp = src.getXP();
+//    }
+    AMateria::operator=(src);
     return *this;
 }
 AMateria *Ice::clone() const {

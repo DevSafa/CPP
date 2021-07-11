@@ -15,6 +15,7 @@ TacticalMarine:: TacticalMarine( void ){
 }
 
  TacticalMarine  &  TacticalMarine::operator = ( TacticalMarine const & src){
+    (void) src;
     return *this;
 }
 
