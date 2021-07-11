@@ -1,19 +1,21 @@
 #ifndef PEON_H
 # define PEON_H
 #include "Victim.hpp"
-
+/*
+    A Peon is a Victim.
+*/
 class Peon : public Victim {
     
     public:
         Peon(std::string  const & name);
-        Peon(Peon const & src);
-        ~Peon( void );
-        Peon & operator = (Peon & src);
+        Peon(Peon const & src);             /*canonical */
+        virtual ~Peon( void );                      /*canonical */
+        Peon & operator = (Peon & src);     /*canonical */
         virtual void getPolymorphed( void ) const;
     private:
-        Peon( void );
+        Peon( void );                          /*canonical */
 };
 
 
-// virtual means that the linkage will be dynamic
+
 #endif

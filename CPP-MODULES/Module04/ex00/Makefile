@@ -11,6 +11,7 @@ $(NAME):
 		Peon.cpp \
 		Sorcerer.cpp \
 		Victim.cpp \
+		Monster.cpp \
 		 -o $(NAME) 
 
 all : $(NAME)
