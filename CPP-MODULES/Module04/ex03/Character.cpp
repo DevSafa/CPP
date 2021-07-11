@@ -39,9 +39,8 @@ Character & Character::operator = (Character const & src){
             if(this->_materias[i])
                  delete this->_materias[i];
             if(src._materias[i])
-                //this->equip(src._materias[i]->clone());
                 this->_materias[i]= src._materias[i]->clone();
-           // this->_materias[i] = src.getMateria(i)->clone();
+
         }
     }
     return *this;

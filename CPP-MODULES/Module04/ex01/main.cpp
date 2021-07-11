@@ -125,6 +125,10 @@ int main(){
     std::cout << *me;
     me->attack(b);
     std::cout << *me;
+
+    std::cout << "-----------------------" << std::endl;
+
+    delete me;
     std::cout << "\n---------------------" << std::endl;
 
     AWeapon *uzi1 = new Uzi();

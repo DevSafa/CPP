@@ -181,7 +181,7 @@ int main(){
     ISpaceMarine * tm1 = new TacticalMarine();
 
     s1->push(as1);
-    s1->push(tm1);
+    
 
     s2->push(tm1);
    
@@ -198,5 +198,7 @@ int main(){
         s2->getUnit(i)->battleCry();
     }
     std::cout <<  "\n--------end----------\n" <<   std::endl;
+    delete s1;
+    delete s2;
     return 0;
 }
