@@ -52,7 +52,6 @@ Character & Character::operator = (Character const & src){
     The old Materia of a Character must be deleted.
 */
 Character::~Character( void ){
-    std::cout << "destructor called" << std::endl;
     for(int i = 0 ; i <4 ; i++)
         delete this->_materias[i];
     delete[] this->_materias;

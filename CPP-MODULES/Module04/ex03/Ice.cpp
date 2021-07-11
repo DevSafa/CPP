@@ -16,11 +16,7 @@ Ice::~Ice( void ){
 }
 
 Ice & Ice::operator = (Ice const & src) {
-//    if(this != &src)
-//    {
-//         this->_type = src.getType();
-//         this->_xp = src.getXP();
-//    }
+
     AMateria::operator=(src);
     return *this;
 }

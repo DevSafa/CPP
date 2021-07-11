@@ -9,12 +9,12 @@ class AMateria{
     protected:
         unsigned int _xp;
         std::string _type;
-        AMateria( void );
+        AMateria( void );                               /* canonical */
     public:
         AMateria(std::string const & type);
-        AMateria(AMateria const & src);
-        virtual ~AMateria();
-        AMateria & operator = ( AMateria const & src);
+        AMateria(AMateria const & src);                 /* canonical */
+        virtual ~AMateria();                            /* canonical */
+        AMateria & operator = ( AMateria const & src);  /* canonical */
         std::string const & getType() const ; 
         unsigned int getXP() const; 
 

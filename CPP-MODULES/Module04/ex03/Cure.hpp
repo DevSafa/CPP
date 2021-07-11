@@ -5,10 +5,10 @@
 
 class Cure : public AMateria {
     public :
-        Cure( void );
-        Cure(Cure const & src);
-        virtual ~Cure( void );
-        Cure & operator = ( Cure const & src);
+        Cure( void );               /*canonical */
+        Cure(Cure const & src);     /* canonical */
+        virtual ~Cure( void );      /* canonical */
+        Cure & operator = ( Cure const & src); /* canonical */
         AMateria *clone() const;
         void use(ICharacter & target);
 };

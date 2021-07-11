@@ -7,10 +7,7 @@ AMateria::AMateria(std::string const &type){
     this->_type = type;
 }
 
-/*
-    While assigning a Materia to another, copying the type doesn’t make
-    sense...
-*/
+
 AMateria::AMateria(AMateria const & src){
     //*this = src;
     if( this != & src)
