@@ -7,11 +7,11 @@
 class PlasmaRifle : public AWeapon {
 
     public :
-        PlasmaRifle( void );
-        ~PlasmaRifle( void );
-        PlasmaRifle( PlasmaRifle const & src);
-        PlasmaRifle & operator = (PlasmaRifle const & src);
-        void attack( void ) const ;      
+        PlasmaRifle( void );                                /* canonical */
+        virtual ~PlasmaRifle( void );                               /* canonical */
+        PlasmaRifle( PlasmaRifle const & src);              /*canonical */
+        PlasmaRifle & operator = (PlasmaRifle const & src); /*canonical */
+        virtual void attack( void ) const ;      
 };
 
 # endif

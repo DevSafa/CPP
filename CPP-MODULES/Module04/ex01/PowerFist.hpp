@@ -8,12 +8,11 @@
 class PowerFist : public AWeapon {
 
     public :
-        PowerFist( void );
-        ~PowerFist( void );
-        PowerFist( PowerFist const & src);
-        PowerFist & operator = (PowerFist const & src);
-        void attack( void ) const ;
-  
+        PowerFist( void );              /* canonical */
+        virtual ~PowerFist( void );             /*canonical */
+        PowerFist( PowerFist const & src);  /* canonical */
+        PowerFist & operator = (PowerFist const & src); /*canonical */
+        virtual void attack( void ) const ;
 };
 
 # endif

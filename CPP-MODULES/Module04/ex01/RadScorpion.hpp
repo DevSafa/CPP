@@ -4,11 +4,11 @@
 
 class RadScorpion : public Enemy {
     public:
-        RadScorpion( void );
-        RadScorpion(RadScorpion const &src);
+        RadScorpion( void );                /*canonical */
+        RadScorpion(RadScorpion const &src);/* canonical */
         std::string const & getType();
-        RadScorpion & operator = (RadScorpion const & src);
-        ~RadScorpion( void );
+        RadScorpion & operator = (RadScorpion const & src); /* canonical */
+        virtual ~RadScorpion( void );   /*canonical */
 };
 
 

@@ -12,26 +12,25 @@ class AWeapon {
 
     public:
         AWeapon(std::string const &name, int apcost, int damage);
-        // delete called on 'AWeapon' that is
-        // abstract but has non-virtual destructor error 
-        virtual ~AWeapon( void );
-        AWeapon(AWeapon const & src);
-        AWeapon & operator = (AWeapon const & src);
-        
-
+        virtual ~AWeapon( void );                       /* canonical */
+        AWeapon(AWeapon const & src);                   /* canonical */
+        AWeapon & operator = (AWeapon const & src);     /* canonical */
         std::string const  & getName( void ) const;
         int         getAPCost( void ) const;
         int         getDamage( void ) const;
-        //'attack' is not virtual and
-        //cannot be declared pure
-        // must use keyword virtual
+        /*
+            A weapon produces certain sounds and lighting effects when 
+            you attack() with it. This will be deferred to 
+            the inheriting classes
+        */
         virtual void attack( void ) const = 0;
         
     private:
-        AWeapon( void );
+        AWeapon( void );                                /*canonical*/
 
 };
 
- std::ostream & operator << (std::ostream & o , AWeapon & aweapon);
+//overload of << operator
+std::ostream & operator << (std::ostream & o , AWeapon & aweapon);
 
 #endif

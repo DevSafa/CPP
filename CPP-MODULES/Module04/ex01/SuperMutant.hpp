@@ -5,11 +5,11 @@
 class SuperMutant : public Enemy {
 
     public :
-        SuperMutant( void );
-        ~SuperMutant( void );
-        SuperMutant(SuperMutant const & src);
-        SuperMutant & operator = (SuperMutant const & src);
-        void takeDamage(int damage);
+        SuperMutant( void );            /* canonical */
+        virtual ~SuperMutant( void );           /* canonical */
+        SuperMutant(SuperMutant const & src);   /* canonical */
+        SuperMutant & operator = (SuperMutant const & src); /*canonical */
+        virtual void takeDamage(int damage);
 };
 
 #endif

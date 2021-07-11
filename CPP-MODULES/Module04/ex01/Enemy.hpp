@@ -9,17 +9,18 @@ class Enemy {
 
     public :
         Enemy( int hp, std::string const & type);
-        Enemy( Enemy const &src);
-        Enemy & operator = (Enemy const & src);
-        virtual  ~Enemy( void );
+        Enemy( Enemy const &src);                      /* canonical */
+        Enemy & operator = (Enemy const & src);        /* canonical */
+        virtual  ~Enemy( void );                       /* canonical */
         std::string const & getType() const;
         int getHP() const;
         virtual void takeDamage(int);
 
     private :
-        Enemy( void );
+        Enemy( void );                                  /*canonical */
 
 };
 
+//overload the << operator
 std::ostream  & operator << (std::ostream &  o, Enemy & enemy);
 #endif

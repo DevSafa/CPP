@@ -13,18 +13,18 @@ class Character {
         AWeapon *_weapon;
         
     public :
-        Character(std::string const & name);
-        ~Character( void );
+        Character(std::string const & name);        
+        ~Character( void );         /* canonical */
         void recoverAP();
         void equip(AWeapon *);
         void attack(Enemy*);
         AWeapon * getWeapon();
         int getAP();
-        std::string const & getName() const;
-        Character(Character const &src);
-        Character & operator = ( Character const & src);
+        std::string const & getName() const;    
+        Character(Character const &src);    /* canonical */
+        Character & operator = ( Character const & src); /* canonical */
     private:
-        Character ( void );
+        Character ( void ); /* canonical */
 };
 
 std::ostream &operator << (std::ostream  & o , Character & character);

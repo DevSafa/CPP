@@ -1,5 +1,10 @@
 #include "AWeapon.hpp"
 
+/*
+     A weapon has a name, a number of damage points inflicted upon a hit, 
+     and a shooting cost in AP (action points).
+*/
+
 AWeapon::AWeapon(std::string const &name, int apcost, int damage)
 {
     this->_name = name;
@@ -8,14 +13,13 @@ AWeapon::AWeapon(std::string const &name, int apcost, int damage)
 }
 
 AWeapon::~AWeapon( void ){
-    std::cout << "destructor called(AWeapon)" << std::endl;
+
 }
 
-AWeapon::AWeapon( void ){
-}
 
 AWeapon & AWeapon::operator = (AWeapon const & src)
 {
+
     if(this != &src)
     {
         this->_name = src._name;
@@ -41,7 +45,6 @@ int AWeapon::getAPCost( void ) const {
 int AWeapon::getDamage( void ) const {
     return this->_damage;
 }
-
 
 
 std::ostream & operator << (std::ostream & o , AWeapon & aweapon )

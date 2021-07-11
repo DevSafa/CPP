@@ -1,11 +1,16 @@
 #include "PowerFist.hpp"
 
 
+/*
+    ◦ Name: "Power Fist"
+    ◦ Damage: 50
+    ◦ AP cost: 8
+*/
 PowerFist::PowerFist(void ) : AWeapon("Power Fist" , 8 , 50 ){
 
 }
 PowerFist::~PowerFist( void ){
-    std::cout << "Destructor called(PowerFist)" << std::endl;
+
 }
 
 PowerFist::PowerFist(PowerFist const & src) :AWeapon(src){
@@ -22,6 +27,9 @@ PowerFist & PowerFist::operator = (PowerFist const & src){
     return *this;
 }
 
+/*
+    Output of attack(): "* pschhh... SBAM! *"
+*/
 void PowerFist::attack() const 
 {
     std::cout << "* pschhh... SBAM! *" << std::endl;
