@@ -2,6 +2,7 @@
 # define SQUAD_H
 #include "ISquad.hpp"
 
+//Squad implement the interface ISquad
 class Squad  : public ISquad{
     private:
 
@@ -10,10 +11,10 @@ class Squad  : public ISquad{
 
     public :
        
-        Squad( void );
-        ~Squad( void );
-        Squad(Squad const & src);
-        Squad & operator = (Squad const & src);
+        Squad( void );      /*canonical */
+        ~Squad( void );        /* canonical */
+        Squad(Squad const & src);   /* canonical */
+        Squad & operator = (Squad const & src); /* canonical */
         int getCount() const ;
         ISpaceMarine* getUnit(int) const ;
         int push(ISpaceMarine*);

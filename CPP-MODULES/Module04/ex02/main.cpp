@@ -2,10 +2,6 @@
 #include "TacticalMarine.hpp"
 #include "Squad.hpp"
 
-#define BOLDWHITE   "\033[1m\033[37m" 
-#define BOLDGREEN   "\033[1m\033[32m" 
-#define BOLDRED     "\033[1m\033[31m"
-#define BOLDYELLOW  "\033[1m\033[33m"
 
 int main(){
 
@@ -100,7 +96,6 @@ int main(){
     Squad *squad2 = new Squad(*squad1);
     squad2->push(jack);
     squad2->push(matya);
-    //squad2->push(bob);
     squad2->push(jack);
     std::cout <<  "\n--------Squad(squad2)----------\n" << std::endl;
     for(int i=0 ; i < squad2->getCount() ; i++ )
@@ -201,11 +196,6 @@ int main(){
     for(int i = 0 ; i < s2->getCount() ; i++)
     {
         s2->getUnit(i)->battleCry();
-    }
-
-    for(int i = 0 ; i < s1->getCount() ; i++)
-    {
-        s1->getUnit(i)->battleCry();
     }
     std::cout <<  "\n--------end----------\n" <<   std::endl;
     return 0;
