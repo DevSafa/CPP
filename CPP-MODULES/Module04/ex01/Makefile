@@ -15,6 +15,8 @@ $(NAME):
 		SuperMutant.cpp \
 		RadScorpion.cpp \
 		Character.cpp  \
+		Uzi.cpp			\
+		Mala.cpp \
 		 -o $(NAME) 
 
 all : $(NAME)

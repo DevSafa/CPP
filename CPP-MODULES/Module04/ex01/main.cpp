@@ -5,6 +5,8 @@
 #include "SuperMutant.hpp"
 #include "RadScorpion.hpp"
 #include "Character.hpp"
+#include "Uzi.hpp"
+#include "Mala.hpp"
 
 int main(){
 
@@ -125,5 +127,17 @@ int main(){
     std::cout << *me;
     std::cout << "\n---------------------" << std::endl;
 
+    AWeapon *uzi1 = new Uzi();
+    uzi1->attack();
+    std::cout << *uzi1;
+    delete uzi1;
+    std::cout << "\n---------------------" << std::endl;
+
+    Enemy *mala = new Mala();
+    std::cout << *mala;
+    mala->takeDamage(3);
+    std::cout << *mala;
+    delete mala;
+    std::cout << "\n---------------------" << std::endl;
     return 0;
 }
