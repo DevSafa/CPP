@@ -66,3 +66,11 @@ void Bureaucrat::GradeTooHightException::getMessage() const {
 void Bureaucrat::GradeTooLowExceoption::getMessage() const {
     std::cout << "Too low Grade" << std::endl;
 }
+
+std::ostream  & operator << (std::ostream  & o , Bureaucrat  & bureaucrat){
+    o  << bureaucrat.getName();
+    o << ", bureaucrat grade ";
+    o << bureaucrat.getGrade() << std::endl;
+
+    return o;
+}

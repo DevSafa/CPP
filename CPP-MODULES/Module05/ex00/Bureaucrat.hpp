@@ -44,5 +44,5 @@ class Bureaucrat {
     
 };
 
-//std::ostream const & operator << (std::ostream const & o , Bureaucrat const & bureauc)
+std::ostream & operator << (std::ostream  & o , Bureaucrat  & bureaucrat);
 #endif
