@@ -6,7 +6,7 @@ CPPFLAGS =  -Wall -Wextra -Werror
 CPPVERSION = -std=c++98
 
 $(NAME):
-		@g++ $(CPPFLAGS) $(CPPVERSION)  \
+		@clang++ $(CPPFLAGS) $(CPPVERSION)  \
 		megaphone.cpp \
 		 -o $(NAME) 
 

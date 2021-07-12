@@ -4,6 +4,7 @@
 #define BOLDGREEN   "\033[1m\033[32m" 
 #define BOLDRED     "\033[1m\033[31m"
 #define BOLDYELLOW  "\033[1m\033[33m"
+#define BOLDBLUE    "\033[1m\033[34m" 
 #include <string>
 #include <iostream>
 #include <iomanip>

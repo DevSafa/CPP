@@ -12,6 +12,7 @@ int main(int argc , char *argv[])
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return (0);
 	}
+	
 	while (argv[i])
 	{
 		while(argv[i][j])

@@ -14,6 +14,7 @@ TacticalMarine::~ TacticalMarine( void ){
 
  TacticalMarine::TacticalMarine( TacticalMarine const & src){
     std::cout << "Tactical Marine ready for battle!" << std::endl;
+    (void )src;
     *this = *this;
 }
 

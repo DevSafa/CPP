@@ -76,6 +76,7 @@ Squad & Squad::operator = ( Squad const & src){
 int Squad::push(ISpaceMarine* unit)
 {
     ISpaceMarine ** new_array;
+    new_array = NULL;
     int i ;
     if(unit == NULL)
         return this->_count;
@@ -83,7 +84,6 @@ int Squad::push(ISpaceMarine* unit)
     {
         if(this->_units[i] == unit)
             return this->_count;
-        i++;
     }
     if(this->_units == NULL)
     {

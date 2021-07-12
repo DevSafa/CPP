@@ -8,7 +8,7 @@ int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
 Account::Account( int initial_deposit ){
-    _displayTimestamp();
+   _displayTimestamp();
     this->_accountIndex = _nbAccounts;
     this->_amount = initial_deposit;
     _nbAccounts+=1;
