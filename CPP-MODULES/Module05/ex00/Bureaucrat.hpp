@@ -27,16 +27,16 @@ class Bureaucrat {
             which will be either a Bureaucrat::GradeTooHighException or
             a Bureaucrat::GradeTooLowException.
         */
-        class GradeTooHightException {
+        class GradeTooHightException : public std::exception{
            public :
                GradeTooHightException();
-               void getMessage()const ;
+               virtual const char *what() const throw();
         };
 
-        class GradeTooLowExceoption {
+        class GradeTooLowExceoption : public std::exception{
             public :
                GradeTooLowExceoption();
-               void  getMessage() const ;
+               virtual const char *what() const throw();
         };
     private :
         Bureaucrat( void );                 /* canonical */
