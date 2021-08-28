@@ -3,141 +3,124 @@
 #include <cctype>
 #include <algorithm>
 
-int ft_count(std::string element , char c)
-{
-    int count = 0;
+#include "data.hpp"
 
-    for(int i = 0; i < element.length() ; i++)
-    {
-        if(element[i] == c)
-            count++;
-    }
-    return count;
-}
-int main(int argc , char **argv)
-{
+int main(int argc , char **argv){
 
-    int is_int = 0;
-    int is_double = 0;
-    int is_char = 0;
-    int is_float = 0;
-    int is_string = 0;
     if (argc != 2)
     {
         std::cout << "Invalid number of arguments "<< std::endl;
         return 0;
     }
-    //check char
-    std::string element = static_cast<std::string>(argv[1]);
+    std::string argument = static_cast<std::string>(argv[1]);
 
-    if(element.length() == 1)
-    {
-        //check if it is a caracter or a number
-        if(isdigit(element[0]))
-            is_int = 1;
-        else
-            is_char = 1;
-    } 
-    //float
-    else if(element.length() > 3 && element[element.length() - 1] =='f' 
-                && ft_count(element,'.') == 1)
-    {
-        for(int i = 0; i < element.length() ; i++)
-        {
-            if(element[0] == '.')
-                break;
-            if(i != element.length() - 1 && !isdigit(element[i]) && element[i] != '.' )
-            {
-                is_float = 0;
-                break;
-            }
-            is_float = 1;
-        }
-    }
+    Data data(argument);
+    data.setType();
 
-    else if(element.length() > 2 && ft_count(element,'.') == 1)
-    {
+    std::cout << "type : " << data.getType()<< std::endl;
+    std::cout << "argument : " << data.getArgument() << std::endl;
+    std::cout << "sub_arg : " << data.getSub_arg() << std::endl;
+    std::cout << "sign : " << data.getSign() << std::endl;
+
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// int ft_count(std::string element , char c)
+// {
+//     int count = 0;
+
+//     for(unsigned long i = 0; i < element.length() ; i++)
+//     {
+//         if(element[i] == c)
+//             count++;
+//     }
+//     return count;
+// }
+// std::string getType(std::string & argument)
+// {
+//     int sign = 1;
+//     //check character or number 0 - 9
+//     if(argument.length() == 1)
+//     {
+//          if(isdigit(argument[0]))
+//             return "int";
+//         return "char";
+//     }
+//     //check float
+//     else if(argument[0] == '-')
+//     {
+//         sign = - 1;
+//         argument = argument.substr(1,argument.length() - 1);
+//        // std::cout << "argument : " << argument << std::endl;
+//     }
+//     if(argument.length() > 3 && argument[argument.length() - 1] =='f' 
+//                 && ft_count(argument,'.') == 1)
+//     {
+//         for(unsigned long i = 0; i < argument.length() ; i++)
+//         {
+//             if(argument[0] == '.')
+//                 break;
+//             if(i != argument.length() - 1 && !isdigit(argument[i]) && argument[i] != '.' )
+//             {
+//                 return "INVALID";
+//             }
+//         }
+//         return "float";
+//     }
+
+//     //check double
+//     else if(argument.length() > 2 && ft_count(argument,'.') == 1)
+//     {
        
-        for(int i = 0; i < element.length() ; i++)
-        {
-            if(element[0] == '.')
-                break;
-            if(!isdigit(element[i]) && element[i] != '.')
-            {
-                is_double = 0;
-                break;
-            }
-            is_double = 1;
-        }
-    }
-    
-    if(is_double == 0 && is_float == 0 && is_int == 0 && is_char == 0)
-    {
-        for(int i = 0; i < element.length() ; i++)
-        {
-            if(!isdigit(element[i]))
-            {
-                is_int = 0;
-                is_string = 1;
-                break;
-            }
-            is_int = 1;
-        }
-    }
-    // else {
-    //     for(int i = 0; i < element.length() ; i++)
-    //     {
-    //         if(!isdigit(element[i]))
-    //         {
-    //             is_string = 1;
-    //             is_int = 0;
-    //             break;
-    //         }
-    //         is_int = 1;
-    //     }
-    // }
+//         for(unsigned long i = 0; i < argument.length() ; i++)
+//         {
+//             if(argument[0] == '.')
+//                 break;
+//             if(!isdigit(argument[i]) && argument[i] != '.')
+//                 return "INVALID";
+//         }
+//         return "double";
+//     }
 
-    std::cout << "is_int : " << is_int << std::endl;
-    std::cout << "is_char : " << is_char << std::endl;
-    std::cout << "is_float : " << is_float << std::endl;
-    std::cout << "is_double : " << is_double << std::endl;
-    std::cout << "is_string : " << is_string << std::endl;
+//     //check int
+//     for(unsigned long i = 0; i < argument.length() ; i++)
+//     {
+//         if(!isdigit(argument[i]))
+//             return "INVALID";
+//     }
+//     return "int";
 
-    // for(int i = 0 ; i < element.length() ; i++)
-    // {
-    //     if(!isdigit(element[i]))
-    //     {
-    //         is_int = 0;
-    //         break;
-    //     }
-    // }
-    // std::cout << "is digit = " << is_int << std::endl;
-    // double x = 1.23;
-    // std::cout << x << std::endl;
+// }
+// int main(int argc , char **argv)
+// {
 
-    // std::cout.precision(5);
-   
-    // std::cout << x << std::endl;
+//     if (argc != 2)
+//     {
+//         std::cout << "Invalid number of arguments "<< std::endl;
+//         return 0;
+//     }
+//     std::string element = static_cast<std::string>(argv[1]);
+//     std::string type = getType(element);
+//     std::cout << "type : " << type << std::endl;
+//     std::cout << "argument : " << element << std::endl;
 
-    // std::cout << "with fixed flag: " << std::fixed << x << std::endl;
-    // std::cout << 5.6f << std::endl;
-    // std::cout << 4.5 << std::endl;
-    // std::cout << "hello" << std::endl;
-
-    // std::cout << "-------------------------" << std::endl;
-    // int a = 120;
-
-    // double d = static_cast<double>(a);
-    // char c = static_cast<char>(a);
-
-    // std::cout << "int value : "<< a << std::endl;
-    // std::cout << "double value :" << std::fixed << std::setprecision(1) << d << std::endl;
-    // std::cout << "char value :" << c << std::endl; 
-
-    // std::cout << "--------------------" << std::endl;
-
-
-}
+  
+// }
 
 /* fixed */
 
