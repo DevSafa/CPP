@@ -17,15 +17,16 @@ int main(int argc , char **argv){
     Data data(argument);
     data.setType();
 
-    // std::cout << "type : " << data.getType()<< std::endl;
-    // std::cout << "argument : " << data.getArgument() << std::endl;
-    // std::cout << "sub_arg : " << data.getSub_arg() << std::endl;
-    // std::cout << "sign : " << data.getSign() << std::endl;
+
     std::cout << "------------------" << std::endl;
     if(data.getType().compare("int") == 0)
         data.convertInt();
    else  if(data.getType().compare("float") == 0)
         data.convertFloat();
+    else if(data.getType().compare("char") == 0)
+        data.convertChar();
+    else if(data.getType().compare("double") == 0)
+        data.convertDouble();
 
 } 
 

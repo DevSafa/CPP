@@ -4,10 +4,6 @@ Data::Data(std::string const & argument){
     this->argument = argument;
     sub_arg = argument;
     sign = +1;
-
-    //std::cout << "address of argument : "<< &argument << std::endl;
-    //std::cout << "address of sub arg : "<< &sub_arg << std::endl;
-
 }
 
 Data::~Data(void){
@@ -30,7 +26,10 @@ int const & Data::getSign() const {
 }
 
 void Data::convertChar(void){
-  
+    std::cout << "char : " << argument[0] << std::endl;
+    std::cout << "int : " << static_cast<int>(argument[0]) << std::endl;
+    std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(argument[0]) << "f" << std::endl;
+    std::cout << "double : " << std::fixed << std::setprecision(1) << static_cast<double>(argument[0]) << std::endl;
 }
 void Data::convertInt(void){
   
@@ -61,6 +60,8 @@ void Data::convertFloat(void){
         nbr = std::stof(sub_arg.substr(0,sub_arg.length() - 1)) * sign;
         if(nbr > 32 && nbr < 127)
             std::cout << "char : " << static_cast<char>(nbr) << std::endl;
+        else
+            std::cout << "char : "  << "Non displayable" << std::endl;
         std::cout << "int : "<< static_cast<int>(nbr) << std::endl;
         std::cout << "float : " << std::fixed  << std::setprecision(1) << nbr << "f" << std::endl;
         std::cout << "double : " << static_cast<double>(nbr) << std::endl;
@@ -72,12 +73,29 @@ void Data::convertFloat(void){
         std::cout << "float : " << "nanf" << std::endl;
         std::cout << "double : " << "nan" << std::endl;
     }
-    
-    
-    //std::cout << nbr << "f" << std::endl;
 }
 void Data::convertDouble(void){
-    
+    try
+    {
+        double nbr ;
+        nbr = std::stod(sub_arg.substr(0,sub_arg.length())) * sign;
+        
+        if(nbr > 32 && nbr < 127)
+            std::cout << "char : " << static_cast<char>(nbr) << std::endl;
+        else
+            std::cout << "char : "  << "Non displayable" << std::endl;
+        std::cout << "int : "<< static_cast<int>(nbr) << std::endl;
+        std::cout << "float : " << std::fixed  << std::setprecision(1) << nbr << "f" << std::endl;
+        std::cout << "double : " << static_cast<double>(nbr) << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << "char : " << "impossible" << std::endl;
+        std::cout << "int : " << "impossible" << std::endl;
+        std::cout << "float : " << "nanf" << std::endl;
+        std::cout << "double : " << "nan" << std::endl;
+    }
+
 }
 
 int Data::ft_count(char c)
@@ -94,6 +112,7 @@ int Data::ft_count(char c)
 
 void Data::setType()
 {
+  
    if(this->argument.length() == 1)
    {
         if(isdigit(argument[0]))
