@@ -3,14 +3,16 @@
 
 #include <string>
 #include <iostream>
+
+class Bureaucrat;
+#include "Form.hpp"
+
 class Bureaucrat {
     private :
-        /*
-            It must have a constant name, and a grade, that ranges from 1 
-            (highest possible) to 150 (lowest possible)
-        */
+
         std::string const _name;
         int _grade;
+        Bureaucrat( void );                 /* canonical */
 
     public :
         Bureaucrat( Bureaucrat const & src); /* canonical */
@@ -21,6 +23,13 @@ class Bureaucrat {
         int getGrade() const;
         void increment( void );
         void decrement( void );
+
+        /*
+            signForm function to the Bureaucrat. If the signing is successful, it will
+            print something like "<bureaucrat> signs <form>", otherwise it will print something
+            like "<bureaucrat> cannot sign <form> because <reason>".
+        */
+        void signForm(Form &form) const ;
         /*
             Any attempt to create a Bureaucrat with an invalid grade must throw 
             an exception,
@@ -29,20 +38,17 @@ class Bureaucrat {
         */
         class GradeTooHightException : public std::exception{
            public :
-               GradeTooHightException();
                virtual const char *what() const throw();
         };
 
-        class GradeTooLowExceoption : public std::exception{
+        class GradeTooLowException : public std::exception{
             public :
-               GradeTooLowExceoption();
                virtual const char *what() const throw();
         };
-    private :
-        Bureaucrat( void );                 /* canonical */
+ 
 
     
 };
 
-std::ostream & operator << (std::ostream  & o , Bureaucrat  & bureaucrat);
+std::ostream & operator << (std::ostream  & o , Bureaucrat  const  & bureaucrat);
 #endif

@@ -27,7 +27,8 @@ Bureaucrat & Bureaucrat::operator = (Bureaucrat const & src){
 
 Bureaucrat::~Bureaucrat( void )
 {
-   // std::cout << "destroy bureaucrat" << std::endl;
+   // std::cout << "destroy bureaucrat " << std::endl;
+
 }
 
 std::string const & Bureaucrat::getName() const {
@@ -39,15 +40,15 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::increment() {
-    if (this->_grade -1  < 1)
+    if (this->_grade - 1  < 1)
         throw Bureaucrat::GradeTooHightException();
-    this->_grade--;
+     this->_grade--;
 }   
 
 void Bureaucrat::decrement(){
-    if(this->_grade + 1 > 150)
+   if(this->_grade + 1 > 150)
         throw Bureaucrat::GradeTooLowException();
-     this->_grade++;
+    this->_grade++;
 }
 
 
@@ -81,6 +82,18 @@ void Bureaucrat::signForm(Form & form) const {
     }
     form.beSigned(*this);
         
+}
+/*
+    Finish this by adding an executeForm(Form const & form) function to the bureaucrat. It must attempt to execute the form, and if it’s a success, print something like
+    <bureaucrat> executes <form>. If not, print an explicit error message.
+*/
+void Bureaucrat::executeForm(Form const & form) {
+    if(this->_grade > form.getGradeExecute())
+        std::cout << *this << "cannot execute  " << form.getName() << " because the grade is too low " <<  std::endl;
+    if(!form.getIsSigned())
+        std::cout << *this << "cannot execute  " << form.getName() << " because the form is not signed" <<  std::endl;
+    form.execute(*this);
+    std::cout << *this << "executes " << form.getName() << std::endl;
 }
 std::ostream  & operator << (std::ostream  & o , Bureaucrat  const & bureaucrat){
     o  << bureaucrat.getName();

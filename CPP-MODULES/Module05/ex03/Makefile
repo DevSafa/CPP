@@ -1,14 +1,19 @@
 .PHONY: all clean fclean re
 
-NAME = Bureaucrat
+NAME = form
 
-CPPFLAGS =  -Wall -Wextra -Werror 
+CPPFLAGS = # -Wall -Wextra -Werror 
 CPPVERSION = -std=c++98
 
 $(NAME):
 		@clang++ $(CPPFLAGS) $(CPPVERSION)  \
-		Bureaucrat.cpp \
+		bureaucrat.cpp \
 		main.cpp \
+		form.cpp \
+		ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp \
+		PresidentialPardonForm.cpp \
+		Intern.cpp \
 		 -o $(NAME) 
 
 all : $(NAME)

@@ -1,16 +1,18 @@
-#include "Form.hpp"
+#include "form.hpp"
 
 
 Form::~Form(void){
     //destructor
-   // std::cout << "destroy form" << std::endl;
 }
 
 Form::Form(std::string const & name, int const  &gradeExecute , int const  &gradeSignIt) :
 _name(name) , _gradeExecute(gradeExecute) ,_gradeSigneIt(gradeSignIt)  , _is_signed(false){
 
     if(_gradeExecute < 1 || _gradeSigneIt < 1)
+    {
+       
         throw Form::GradeTooHighException();
+    }
     if(_gradeExecute > 150 || _gradeSigneIt > 150 )
         throw Form::GradeTooLowException();
 
@@ -33,7 +35,7 @@ std::string const &Form::getName(void) const{
     return this->_name;
 }
 
-bool & Form::getIsSigned( void )  {
+bool  Form::getIsSigned( void ) const {
     return this->_is_signed;
 }
 
@@ -56,7 +58,9 @@ const char *Form::GradeTooLowException::what() const throw(){
 const char *Form::FormAlreadySignedException::what() const throw(){
     return "Form Exception: Form already signed" ;
 }
-
+const char *Form::FormNotSignedEXception::what() const throw(){
+    return "Form Exception: Form not signed" ;
+}
 std::ostream & operator << (std::ostream & o , Form   & form){
     o << "form name : " << form.getName() << std::endl;
     if(form.getIsSigned())
@@ -69,9 +73,13 @@ std::ostream & operator << (std::ostream & o , Form   & form){
 }
 
 void Form::beSigned( Bureaucrat const & bureaucrat)  {
+    // check if the form is already signed
     if(this->_is_signed)
         throw Form::FormAlreadySignedException();
-
+    /*
+        Always remember, grade 1 is better than
+        grade 2. If the grade is too low, throw a Form::GradeTooLowException
+    */
     if (bureaucrat.getGrade() > this->getGradeSignIt())
         throw Form::GradeTooLowException(); 
     this->_is_signed = true;

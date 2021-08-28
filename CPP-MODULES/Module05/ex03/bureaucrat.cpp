@@ -1,4 +1,4 @@
-#include "Bureaucrat.hpp"
+#include "bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(std::string const & name , int grade) :  _name(name) , _grade(grade)
 {
@@ -27,7 +27,8 @@ Bureaucrat & Bureaucrat::operator = (Bureaucrat const & src){
 
 Bureaucrat::~Bureaucrat( void )
 {
-   // std::cout << "destroy bureaucrat" << std::endl;
+    std::cout << "destroy bureaucrat " << std::endl;
+
 }
 
 std::string const & Bureaucrat::getName() const {
@@ -39,15 +40,15 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::increment() {
-    if (this->_grade -1  < 1)
-        throw Bureaucrat::GradeTooHightException();
     this->_grade--;
+    if (this->_grade  < 1)
+        throw Bureaucrat::GradeTooHightException();
 }   
 
 void Bureaucrat::decrement(){
-    if(this->_grade + 1 > 150)
+    this->_grade++;
+   if(this->_grade > 150)
         throw Bureaucrat::GradeTooLowException();
-     this->_grade++;
 }
 
 
@@ -67,20 +68,28 @@ const char * Bureaucrat::GradeTooLowException::what() const throw(){
 void Bureaucrat::signForm(Form & form) const {
     if(form.getIsSigned())
     {
-       std::cout << *this << "cannot sign \n" << form 
-       << "because" << " it already signed" << std::endl;
+        std::cout << this->_name << " cannot signs " << form.getName() << std::endl; 
+        std::cout << "the form already signed" << std::endl;
     }
+    // if(form.getIsSigned())
+    //     throw Form::FormAlreadySignedException();
     else if(this->_grade > form.getGradeSignIt())
     {
-         std::cout << *this << "cannot sign \n" << form 
-       << "because" << " the grade is too low" << std::endl;
+        std::cout << this->_name << " cannot signs " << form.getName() << std::endl; 
+    //     throw Form::GradeTooLowException();
+        std::cout << "the grade is too low" << std::endl;
     }
     else
     {
-        std::cout << *this << "signs \n" << form ;
+         std::cout << this->_name << " signs " << form.getName() << std::endl;
     }
     form.beSigned(*this);
+    // std::cout << this->_name << " signs " << form.getName() << std::endl;
         
+}
+
+void Bureaucrat::executeForm(Form const & form) {
+    form.execute(*this);
 }
 std::ostream  & operator << (std::ostream  & o , Bureaucrat  const & bureaucrat){
     o  << bureaucrat.getName();

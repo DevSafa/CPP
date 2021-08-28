@@ -8,7 +8,6 @@ class Form;
 
 class Form {
     private :
-        /* The name and grades are constant */
         /*
             Make a Form class. It has a name
         */
@@ -32,7 +31,7 @@ class Form {
 
         /* make getters for all attributes */
         std::string const &getName(void) const ;
-        bool & getIsSigned(void) ;
+        bool getIsSigned(void)  const;
         int const & getGradeSignIt(void) const;
         int const & getGradeExecute(void) const ;
         Form & operator = (Form const & src); /*canonical */
@@ -69,6 +68,13 @@ class Form {
             public :
                 virtual const char * what() const throw();
         };
+
+        class FormNotSignedEXception : public std::exception {
+            public :
+                virtual const char * what() const throw();
+        };
+        virtual void execute(Bureaucrat const & executor) const = 0;
+        void checkForm(Bureaucrat const & executor) const ;
 
 };
 /*
