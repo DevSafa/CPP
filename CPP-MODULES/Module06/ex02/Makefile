@@ -1,14 +1,14 @@
 .PHONY: all clean fclean re
 
-NAME = Static_cast
+NAME = Dynamic_cast
 
 CPPFLAGS =  -Wall -Wextra -Werror 
 CPPVERSION = -std=c++98
 
 $(NAME):
 		@clang++ $(CPPFLAGS) $(CPPVERSION)  \
-		data.cpp \
 		main.cpp \
+		Base.cpp \
 		 -o $(NAME) 
 
 all : $(NAME)
