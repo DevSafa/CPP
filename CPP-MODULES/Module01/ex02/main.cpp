@@ -6,6 +6,7 @@ int main()
 {
     std::string myString;
 
+    /* create a string containing "HI THIS IS BRAIN" */
     myString = "HI THIS IS BRAIN";
 
     //Create a stringPTR which is a pointer to the string
