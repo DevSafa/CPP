@@ -3,16 +3,18 @@
 int main()
 {
     int n = 5;
-    int i = 0;
-    Zombie *zombies = zombieHorde(n, "safa");
-    while(i < n)
-    {
-        zombies[i].announce();
-        i++;
-    }
 
+    Zombie *zombies = zombieHorde(n, "safa");
+
+    /*
+        calling announce() on each one of the Zombies
+    */
+    for(int i = 0 ; i < n ; i++)
+        zombies[i].announce();
+  
     std::cout << "------------------------\n";
-    //delete all zombies
+
+    /* Do not forget to delete ALL the Zombies when you don’t need them anymore */
     delete [] zombies;
     return 0;
 }
