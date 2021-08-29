@@ -4,6 +4,10 @@
 #include <string>
 #include "Weapon.hpp"
 
+/* 
+create two classes, HumanA and HumanB, 
+that both have a Weapon, a name, and an attack() function 
+*/
 class HumanA {
     private:
         Weapon const & _weapon;

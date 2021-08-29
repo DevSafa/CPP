@@ -1,5 +1,7 @@
 #include "HumanB.hpp"
 
+/* HumanB doesn’t take the weapon in it's constructor */
+/* HumanB may not always have a Weapon */
 HumanB::HumanB( std::string const & name) :_name(name)
 {
     
@@ -24,7 +26,7 @@ void HumanB::attack( void ) const{
     std::cout << this->getName() << " attacks with his " << this->getWeapon().getType() << std::endl;
 }
 
-void HumanB::setWeapon(Weapon *weapon)
+void HumanB::setWeapon(Weapon &weapon)
 {
-    this->_weapon = weapon;
+    this->_weapon = &weapon;
 }
