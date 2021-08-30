@@ -2,10 +2,6 @@
 #include <fstream>
 #include <string>
 
-void replace(std::ifstream *my_input_file, std::ofstream *my_output_file)
-{
-    
-}
 int main(int argc , char *argv[])
 {
     /* test number of arguments */
