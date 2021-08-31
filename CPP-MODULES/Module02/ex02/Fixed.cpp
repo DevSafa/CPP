@@ -71,5 +71,39 @@ std::ostream & operator << (std::ostream & o ,Fixed const & src){
     o << src.toFloat();
     return o;
 }
+
+// bool Fixed::operator > (Fixed const & src)
+// {
+//     return this->toFloat() > src.toFloat();
+// }
+
+// bool Fixed::operator < (Fixed const & src)
+// {
+//     return this->toFloat() < src.toFloat();
+// }
+// bool Fixed::operator >= (Fixed const & src)
+// {
+//     return this->toFloat() >= src.toFloat();
+// }
+
+// bool Fixed::operator <= (Fixed const & src)
+// {
+//     return this->toFloat() <= src.toFloat();
+// }
+
+// bool Fixed::operator == (Fixed const & src)
+// {
+//     return this->toFloat() == src.toFloat();
+// }
+
+// bool Fixed::operator != (Fixed const & src)
+// {
+//     return this->toFloat() != src.toFloat();
+// }
+
+// Fixed & operator + (Fixed const & src)
+// {
+//     return 
+// }
 //https://pediaa.com/difference-between-fixed-point-and-floating-point/
 //https://www.forth.com/starting-forth/5-fixed-point-arithmetic/

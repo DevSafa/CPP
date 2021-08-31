@@ -17,12 +17,17 @@ class Fixed {
         Fixed( float const & x);
         float toFloat( void )const;
         int toInt( void ) const;
-        bool operator > (Fixed const & src);
-        bool operator < (Fixed const & src);
-        bool operator >= (Fixed const & src);
-        bool operator <= (Fixed const & src);
-        bool operator == (Fixed const & src);
-        bool operator != (Fixed const & src);
+        // bool operator > (Fixed const & src);
+        // bool operator < (Fixed const & src);
+        // bool operator >= (Fixed const & src);
+        // bool operator <= (Fixed const & src);
+        // bool operator == (Fixed const & src);
+        // bool operator != (Fixed const & src);
+
+        // Fixed & operator + (Fixed const & src);
+        // Fixed & operator - (Fixed const & src);
+        // Fixed & operator * (Fixed const & src);
+        // Fixed & operator /(Fixed const & src);
 
 };
 
