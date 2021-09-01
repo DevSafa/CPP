@@ -2,6 +2,25 @@
 #include <fstream>
 #include <string>
 
+void replace(std::ifstream &my_input_file, std::ofstream &my_output_file, std::string &s1, std::string &s2)
+{
+    std::string my_string;
+    unsigned long index;
+    
+    while(getline(my_input_file,my_string)){
+        index = my_string.find(s1);
+        while(index != std::string::npos)
+        {
+            my_string  = my_string.substr(0,index) +s2+
+            my_string.substr(index +s1.length(),my_string.length() - index +s1.length() + 1);
+            index = my_string.find(s1,index + s2.length());
+        }
+        my_output_file << my_string << std::endl;
+    }
+    
+    my_output_file.close();
+}
+
 int main(int argc , char *argv[])
 {
     /* test number of arguments */
@@ -44,21 +63,7 @@ int main(int argc , char *argv[])
         return 0;
     }
    
-    std::string my_string;
-    unsigned long index;
-    
-    while(getline(my_input_file,my_string)){
-        index = my_string.find(s1);
-        while(index != std::string::npos)
-        {
-            my_string  = my_string.substr(0,index) +s2+
-            my_string.substr(index +s1.length(),my_string.length() - index +s1.length() + 1);
-            index = my_string.find(s1,index + s2.length());
-        }
-        my_output_file << my_string << std::endl;
-    }
-    
-    my_output_file.close();
+   replace(my_input_file, my_output_file,s1, s2);
 }
 
 /*
