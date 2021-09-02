@@ -4,7 +4,9 @@
 #include <iostream>
 class Fixed {
     private :
+        /* An integer to store the fixed point value. */
         int _fixedPointValue;
+        /* Astatic constant integer to store the number of fractional bits */
         static const int bitFractio;
     public :
         Fixed( void );

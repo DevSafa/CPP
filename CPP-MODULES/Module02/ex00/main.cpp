@@ -10,19 +10,6 @@ int main(void) {
     std::cout << b.getRawBits() << std::endl;
     std::cout << c.getRawBits() << std::endl;
 
-    int r = 1 << 8;
-    std::cout << 3 * r << std::endl;
-   
-   float f = 32.3455f;
-   std::cout << "------------" << std::endl;
-
-   int fixed_point = roundf(f  * (1 << 8)) ; // * (1<< 8) ;
-   std::cout << fixed_point << std::endl;
-
-   std::cout << "------------" << std::endl;
-
-   float p = ((float)fixed_point / (float)(1 << 8));
-   std::cout << p;
     return 0;
 }
 
