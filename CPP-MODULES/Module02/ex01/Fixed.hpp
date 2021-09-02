@@ -8,15 +8,15 @@ class Fixed {
         static const int _bitFractio;
     public :
         Fixed( void );
-        ~Fixed( void );
+        Fixed( int const & x);
+        Fixed( float const & x);
         Fixed(Fixed const & src);
         Fixed const & operator = (Fixed  const & src);
         int getRawBits( void ) const; 
         void setRawBits( int const raw);
-        Fixed( int const & x);
-        Fixed( float const & x);
         float toFloat( void )const;
         int toInt( void ) const;
+        ~Fixed( void );
 };
 
 std::ostream & operator << (std::ostream & o ,Fixed const & src);

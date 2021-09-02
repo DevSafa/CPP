@@ -72,38 +72,91 @@ std::ostream & operator << (std::ostream & o ,Fixed const & src){
     return o;
 }
 
-// bool Fixed::operator > (Fixed const & src)
+bool Fixed::operator > (Fixed const & src)
+{
+    return this->toFloat() > src.toFloat();
+}
+
+bool Fixed::operator < (Fixed const & src)
+{
+    return this->toFloat() < src.toFloat();
+}
+bool Fixed::operator >= (Fixed const & src)
+{
+    return this->toFloat() >= src.toFloat();
+}
+
+bool Fixed::operator <= (Fixed const & src)
+{
+    return this->toFloat() <= src.toFloat();
+}
+
+bool Fixed::operator == (Fixed const & src)
+{
+    return this->toFloat() == src.toFloat();
+}
+
+bool Fixed::operator != (Fixed const & src)
+{
+    return this->toFloat() != src.toFloat();
+}
+
+Fixed &  Fixed::min(Fixed & nbr1 , Fixed & nbr2)
+{
+    if(nbr1.toFloat() < nbr2.toFloat())
+        return nbr1;
+    return nbr2;
+}
+
+Fixed & Fixed::max(Fixed & nbr1, Fixed & nbr2)
+{
+    if(nbr1.toFloat() > nbr2.toFloat())
+        return nbr1;
+    return nbr2;
+}
+Fixed & Fixed::operator + (Fixed const & src)
+{
+    return Fixed(this->toFloat() + src.toFloat());
+}
+
+// Fixed & Fixed::operator - (Fixed const & src)
 // {
-//     return this->toFloat() > src.toFloat();
+//     return Fixed(this->toFloat() - src.toFloat());
 // }
 
-// bool Fixed::operator < (Fixed const & src)
+// Fixed & Fixed::operator * (Fixed const & src)
 // {
-//     return this->toFloat() < src.toFloat();
-// }
-// bool Fixed::operator >= (Fixed const & src)
-// {
-//     return this->toFloat() >= src.toFloat();
+//     return Fixed(this->toFloat() * src.toFloat());
 // }
 
-// bool Fixed::operator <= (Fixed const & src)
+// Fixed & Fixed::operator / (Fixed const & src)
 // {
-//     return this->toFloat() <= src.toFloat();
+//     float  const tmp = this->toFloat() / src.toFloat();
+//     return Fixed(tmp);
 // }
 
-// bool Fixed::operator == (Fixed const & src)
-// {
-//     return this->toFloat() == src.toFloat();
-// }
+Fixed & Fixed::operator ++ (void)
+{
+    *this = Fixed(this->toFloat() + Fixed(1).toFloat() /(1 << 8));
+    return *this;
+}
 
-// bool Fixed::operator != (Fixed const & src)
-// {
-//     return this->toFloat() != src.toFloat();
-// }
+Fixed & Fixed::operator ++(int)
+{
+    *this = Fixed(this->toFloat() + Fixed(1).toFloat() /(1 << 8));
+    return *this;
+}
 
-// Fixed & operator + (Fixed const & src)
-// {
-//     return 
-// }
+Fixed & Fixed::operator --(void)
+{
+    *this = Fixed(this->toFloat() - Fixed(1).toFloat() /(1 << 8));
+    return *this;
+}
+
+Fixed & Fixed::operator --(int)
+{
+    *this = Fixed(this->toFloat()- Fixed(1).toFloat() /(1 << 8));
+    return  *this;
+}
 //https://pediaa.com/difference-between-fixed-point-and-floating-point/
 //https://www.forth.com/starting-forth/5-fixed-point-arithmetic/

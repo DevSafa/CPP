@@ -8,6 +8,40 @@ Fixed::~Fixed( void ){
     std::cout << "Destructor called" << std::endl;
 }
 
+Fixed::Fixed(const float & x)
+{
+    std::cout << "Float constructor called" << std::endl;
+    /* 
+    to convert a floating point number to this fixed-point 
+    representation you just multiply the number by your scaling 
+    factor and round to an integer.
+    */
+    this->_fixedPointValue = std::roundf(x * (1 << _bitFractio));
+}
+
+float Fixed::toFloat( void ) const
+{
+    /*
+        To convert from your integer fixed-point representation back to floating point 
+        you cast your fixed-point value to a float, and then divide by your scaling 
+        factor.
+    */
+    return ((float)_fixedPointValue /(float)(1 << _bitFractio));
+}
+
+/*
+A constructor that takes a constant integer as a parameter 
+and that converts it to the correspondant fixed(8) point value.
+The fractional bits value is initialized like in ex00.
+*/
+Fixed::Fixed(const int & x )
+{
+    std::cout << "Int constructor called" << std::endl;
+    // 1 << 8  == 2 ^ 8 = 256
+    this->_fixedPointValue =  x * (1 << _bitFractio);
+
+}
+
 Fixed::Fixed(Fixed const  & src)
 {
     std::cout << "Copy constructor called" << std::endl;
@@ -32,34 +66,6 @@ void Fixed::setRawBits(int const raw)
     _fixedPointValue = raw;
 }
 
-
-const int Fixed::_bitFractio = 8;
-
-/*
-A constructor that takes a constant integer as a parameter 
-and that converts it to the correspondant fixed(8) point value.
-The fractional bits value is initialized like in ex00.
-*/
-Fixed::Fixed(const int & x )
-{
-    std::cout << "Int constructor called" << std::endl;
-    // 1 << 8  == 2 ^ 8 = 256
-    this->_fixedPointValue =  x * (1 << _bitFractio);
-
-}
-
-Fixed::Fixed(const float & x)
-{
-    std::cout << "Float constructor called" << std::endl;
-    this->_fixedPointValue = std::roundf(x * (1 << _bitFractio));
-}
-
-float Fixed::toFloat( void ) const
-{
-    
-    return ((float)_fixedPointValue / (float)(1 << _bitFractio));
-}
-
 int Fixed::toInt( void ) const
 {
     
@@ -71,5 +77,8 @@ std::ostream & operator << (std::ostream & o ,Fixed const & src){
     o << src.toFloat();
     return o;
 }
+
+const int Fixed::_bitFractio = 8;
+
 //https://pediaa.com/difference-between-fixed-point-and-floating-point/
 //https://www.forth.com/starting-forth/5-fixed-point-arithmetic/

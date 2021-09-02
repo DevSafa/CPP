@@ -17,18 +17,22 @@ class Fixed {
         Fixed( float const & x);
         float toFloat( void )const;
         int toInt( void ) const;
-        // bool operator > (Fixed const & src);
-        // bool operator < (Fixed const & src);
-        // bool operator >= (Fixed const & src);
-        // bool operator <= (Fixed const & src);
-        // bool operator == (Fixed const & src);
-        // bool operator != (Fixed const & src);
-
-        // Fixed & operator + (Fixed const & src);
-        // Fixed & operator - (Fixed const & src);
-        // Fixed & operator * (Fixed const & src);
-        // Fixed & operator /(Fixed const & src);
-
+        bool operator > (Fixed const & src);
+        bool operator < (Fixed const & src);
+        bool operator >= (Fixed const & src);
+        bool operator <= (Fixed const & src);
+        bool operator == (Fixed const & src);
+        bool operator != (Fixed const & src);
+        static Fixed & min(Fixed & nbr1, Fixed & nbr2);
+        static Fixed & max(Fixed & nbr1, Fixed & nbr2);
+       Fixed & operator + (Fixed const & src);
+       // Fixed & operator - (Fixed const & src);
+        //Fixed & operator * (Fixed const & src);
+       // Fixed & operator /(Fixed const & src);
+        Fixed &operator++(void);
+        Fixed &operator++(int);
+        Fixed &operator--(void);
+        Fixed &operator--(int);
 };
 
 std::ostream & operator << (std::ostream & o ,Fixed const & src);
