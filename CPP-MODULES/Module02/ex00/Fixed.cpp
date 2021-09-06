@@ -22,7 +22,7 @@ Fixed const  & Fixed::operator = (Fixed const & src)
 
     return *this;
 }
-/* returns the rawvalue of the fixed point value. */
+/* returns the raw value of the fixed point value. */
 int Fixed::getRawBits( void ) const {
    std::cout << "getRawBits member function called" << std::endl; 
    return _fixedPointValue;
