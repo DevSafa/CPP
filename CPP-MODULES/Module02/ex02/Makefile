@@ -6,7 +6,7 @@ CPPFLAGS =  -Wall -Wextra -Werror
 CPPVERSION = -std=c++98
 
 $(NAME):
-		@g++ $(CPPFLAGS) $(CPPVERSION)  \
+		@clang++ $(CPPFLAGS) $(CPPVERSION)  \
 		main.cpp \
 		Fixed.cpp \
 		 -o $(NAME) 

@@ -20,10 +20,10 @@ class Fixed {
         int toInt( void ) const;
         static Fixed  min(Fixed  nbr1, Fixed  nbr2);
         static Fixed  max(Fixed  nbr1, Fixed  nbr2);
-        Fixed  operator * (Fixed const  & src) const  ;
+        Fixed  operator * (Fixed const  & src) const;
         bool operator > (Fixed const & src) const;
-        bool operator < (Fixed const & src) const ;
-        bool operator >= (Fixed const & src) const ;
+        bool operator < (Fixed const & src) const;
+        bool operator >= (Fixed const & src) const;
         bool operator <= (Fixed const & src) const;
         bool operator == (Fixed const & src) const ;
         bool operator != (Fixed const & src) const ;
