@@ -1,18 +1,20 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap( void ) : ClapTrap(){
-    std::cout << BOLDGREEN << "Default constructor called from ScavTrap" << "\033[0m"  << std::endl;
+ScavTrap::ScavTrap( void ) : ClapTrap(100,50,20){
+    std::cout << "Default constructor called from ScavTrap" << std::endl;
 
 }
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
-    std::cout << BOLDGREEN << "Parametric constructor called from ScavTrap" << "\033[0m" << std::endl;
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50 , 20){
+    std::cout << "Parametric constructor called from ScavTrap" << std::endl;
+}
+
+
+ScavTrap::ScavTrap(ScavTrap const & src) : ClapTrap(src){
+    std::cout <<  "Copy constructor called from ScavTrap" << std::endl;
 }
 
 ScavTrap::~ScavTrap(){
-    std::cout << BOLDRED<< "Destructor called from ScavTrap" << "\033[0m" << std::endl;
-}
-ScavTrap::ScavTrap(ScavTrap const & src){
-    *this = src;
+    std::cout <<"Destructor called from ScavTrap" <<  std::endl;
 }
 
 void ScavTrap::guardGate(){
@@ -21,14 +23,16 @@ void ScavTrap::guardGate(){
 }
 ScavTrap & ScavTrap::operator = (ScavTrap const &cpy)
 {
-     std::cout << BOLDYELLOW << "operator overload (=) " <<  "\033[0m" << std::endl;
-     if(this != &cpy)
-     {
-        this->_name = cpy.getName();
-        this->_hit_points = cpy.getHitPoints();
-        this->_attack_damage = cpy.getAttackDamage();
-        this->_energy_points = cpy.getEnergyPoints();
-     }
+    ClapTrap::operator = (cpy);
      return *this;
 }
 
+void        ScavTrap::attack( std::string const & target ){
+    this->_hit_points--;
+    this->_attack_damage++;
+    std::cout << "scavTrap " << "<" << this->getName() << "> " ;
+    std::cout << "attacks " << "<" << target << "> , ";
+    std::cout << "causing " << "<" << this->getAttackDamage() << "> ";
+    std::cout << "points of damage!" << std::endl;
+    
+}

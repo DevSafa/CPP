@@ -7,13 +7,13 @@
 
 class FragTrap : public ClapTrap {
     public:
-        FragTrap( void );
-        ~FragTrap( void );
-        FragTrap(FragTrap const &src);
+        FragTrap( void );               /* canonical */
+        ~FragTrap( void );              /* canonical */
+        FragTrap(FragTrap const &src);  /*canonical */
         FragTrap(std::string name);
-        void setValues(int hit_points, int energy_points,int attack_damage);
-        //FragTrap & operator = (FragTrap const & cpy);
+        FragTrap & operator = (FragTrap const & cpy); /* canonical */
         void highFivesGuys( void );
+        void attack(std::string const & target);
 };
 
 #endif
