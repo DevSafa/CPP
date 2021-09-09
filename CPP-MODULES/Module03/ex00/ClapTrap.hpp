@@ -3,9 +3,6 @@
 #include <string>
 #include <iostream>
 
-#define BOLDGREEN   "\033[1m\033[32m" 
-#define BOLDRED     "\033[1m\033[31m"
-#define BOLDYELLOW  "\033[1m\033[33m"
 
 class ClapTrap {
     private :
@@ -15,20 +12,27 @@ class ClapTrap {
         int _attack_damage;
 
     public:
-        ClapTrap( void );
-        ClapTrap(std::string name);
-        ClapTrap(ClapTrap const & src );
-        ~ClapTrap( void );
+        ClapTrap( void );                               /* canonical */
+        ClapTrap(std::string name);     
+        ClapTrap(ClapTrap const & src );                /* canonical */
+        ~ClapTrap( void );                              /* canonical */
 
-        ClapTrap & operator = (ClapTrap const & cpy);
+        ClapTrap & operator = (ClapTrap const & cpy);   /* canonical */
         void attack(std::string const & target);
         void takeDamage(unsigned int amount);
         void beRepaired( unsigned int amount);
-        // getters
+    
+        //getters
         std::string getName( void ) const;
         int         getHitPoints( void ) const;
         int         getEnergyPoints( void ) const;
         int         getAttackDamage( void ) const;
+
+        //setters
+        void         setName( std::string const & name );
+        void         setHitPoints( int & hitPoints );
+        void         setEnergyPoints( int & energyPoints );
+        void         setAttackDamage( int & attackDamage );
 
 };
 
