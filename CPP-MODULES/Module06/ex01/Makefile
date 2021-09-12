@@ -2,12 +2,11 @@
 
 NAME = cast
 
-CPPFLAGS =  -Wall -Wextra -Werror 
+# CPPFLAGS =  -Wall -Wextra -Werror 
 CPPVERSION = -std=c++98
 
 $(NAME):
-		@clang++ $(CPPFLAGS) $(CPPVERSION)  \
-		data.cpp \
+		@clang++  $(CPPVERSION)  \
 		main.cpp \
 		 -o $(NAME) 
 

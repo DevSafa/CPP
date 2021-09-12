@@ -35,6 +35,7 @@ void Data::convertInt(void){
   
     try{
         int nbr = std::stoi(sub_arg) * sign;
+        
         if(nbr > 32 && nbr < 127)
             std::cout << "char : " << static_cast<char>(nbr) << std::endl;
         else 
@@ -43,13 +44,16 @@ void Data::convertInt(void){
         std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(nbr) << "f" << std::endl;
         std::cout << "double : " << std::fixed << std::setprecision(1) << static_cast<double>(nbr) << std::endl;
     }
-    catch(std::out_of_range &e)
+    catch(const std::exception& e)
     {
         
         std::cout << "char : " << "impossible" << std::endl;
         std::cout << "int : " << "impossible" << std::endl;
-        std::cout << "float : " << "nanf" << std::endl;
-        std::cout << "double : " << "nan" << std::endl;
+        float nbrf = stof(sub_arg) * sign;
+        std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(nbrf) << "f" << std::endl;
+        std::cout << "double : " << std::fixed << std::setprecision(1) << static_cast<double>(nbrf) << std::endl;
+        // std::cout << "float : " << "nanf" << std::endl;
+        // std::cout << "double : " << "nan" << std::endl;
     }
     
 }
@@ -112,7 +116,27 @@ int Data::ft_count(char c)
 
 void Data::setType()
 {
-  
+  if(this->argument.compare("-inff") == 0 || 
+    this->argument.compare("+inff") == 0 ||
+    this->argument.compare("nanf") == 0
+  )
+  {
+        std::cout << "char : " << "impossible" << std::endl;
+        std::cout << "int : " << "impossible" << std::endl;
+        std::cout << "float : " << "nanf" << std::endl;
+        std::cout << "double : " << "nan" << std::endl;
+        return;
+  }
+  else if(this->argument.compare("-inf") == 0 || 
+    this->argument.compare("+inf") == 0 ||
+    this->argument.compare("nan") == 0)
+    {
+        std::cout << "char : " << "impossible" << std::endl;
+        std::cout << "int : " << "impossible" << std::endl;
+        std::cout << "float : " << "nanf" << std::endl;
+        std::cout << "double : " << "nan" << std::endl;
+        return;
+    }
    if(this->argument.length() == 1)
    {
         if(isdigit(argument[0]))

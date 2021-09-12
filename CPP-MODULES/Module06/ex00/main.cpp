@@ -16,9 +16,6 @@ int main(int argc , char **argv){
 
     Data data(argument);
     data.setType();
-
-
-    std::cout << "------------------" << std::endl;
     if(data.getType().compare("int") == 0)
         data.convertInt();
    else  if(data.getType().compare("float") == 0)
@@ -27,6 +24,8 @@ int main(int argc , char **argv){
         data.convertChar();
     else if(data.getType().compare("double") == 0)
         data.convertDouble();
+    else if(data.getType().compare("INVALID") == 0)
+        std::cout << "String data type" << std::endl;
 
 } 
 
