@@ -2,30 +2,33 @@
 # define ITER_HPP
 
 #include <iostream>
-template <typename T1 , typename T2, typename T3> 
 
-void iter(T1 &x, T2  y, T3 f){ //(void) (*f)(T3 const &)
-    
-    for(int i = 0; i < y ; i++)
-        f(x[i]);
+
+template <typename T >
+void iter(T *x, int  y,    void (*f)(T const   &)){
+   for(int i = 0;  i < y ; i++)
+       f(x[i]);
 }
 
 template <typename T>
-
-void add5(T & element){
-    element = element + 5;
-}
-
-template <typename U>
-void displayElements(U & x)
+void displayElements(T const &x, int y)
 {
-    int len = std::end(x) - std::begin(x);
-    for(int i = 0 ; i < len ; i++)
+    for(int i = 0 ; i < y ; i++)
         std::cout << x[i] << " " ;
     std::cout << std::endl;
 }
 
+template <typename T>
+void add5(T const & element){
+    T newElement = element + 5;
+    std::cout << newElement << " " ;
+}
 
+template<typename T>
+void print(T const & x){
+    std::cout << x << std::endl;
+    return ;
+}
 
 class Awesome
 {
@@ -42,11 +45,7 @@ std::ostream & operator << (std::ostream & o, Awesome const &rhs){
     return o;
 }
 
-template<typename T4>
-void print(T4 const & x){
-    std::cout << x << std::endl;
-    return ;
-}
+
 
 
 #endif

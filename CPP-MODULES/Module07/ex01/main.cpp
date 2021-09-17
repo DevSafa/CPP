@@ -6,54 +6,45 @@ int main(){
     
     int len = std::end(i) - std::begin(i);
    
-    displayElements(i);
-    iter(i, len,add5<int>);
-    displayElements(i);
+    displayElements(i,len);
+    iter(i, len,add5);
 
-    std::cout << "------------------------" << std::endl;
-
-    std::string a = "hello";
-    displayElements(a);
-    len = a.length();
-    iter(a, len,add5<char>);
-    displayElements(a);
-
-    std::cout << "------------------------" << std::endl;
+    std::cout << "\n------------------------" << std::endl;
 
     char c[] = {'a','b','c','d','e','f'};
-    displayElements(c);
     len = std::end(c) - std::begin(c);
-    iter(c, len,add5<char>);
-    displayElements(c);
+    displayElements(c,len);
+    iter(c, len,add5);
+    std::cout << std::endl;
 
-    std::cout << "------------------------" << std::endl;
+    std::cout << "\n------------------------" << std::endl;
 
     float f[] = {3.1f , 3.3f , 10.0f , 5.3f};
-    displayElements(f);
     len = std::end(f) - std::begin(f);
-    iter(f, len,add5<float>);
-    displayElements(f);
+    displayElements(f,len);
+    iter(f, len,add5);
 
-    std::cout << "------------------------" << std::endl;
+    std::cout << "\n------------------------" << std::endl;
+
     double d[] = {2.2 , 3.3 , 10.0 , 0.3};
-    displayElements(d);
     len = std::end(d) - std::begin(d);
-    iter(d, len,add5<double>);
-    displayElements(d);
+    displayElements(d,len);
+    iter(d, len,add5);
 
 
-    std::cout << "------------------------" << std::endl;
+    std::cout << "\n------------------------" << std::endl;
     
-//    int tab[] = {0,1,2,3,4};
+    int tab[] = {0,1,2,3,4};
 
-//     Awesome tab2[5];
-//     iter(tab, 5 , print);
+    Awesome  tab2[5];
+    iter(tab, 5 , print);
 
-    //iter(tab2,5, print<Awesome>);
+    iter(tab2,5, print);
 
    
     
-
+  //int tab[] ={1,2,3,4};
+  //iter(tab, 4, print);
   
 
 }
