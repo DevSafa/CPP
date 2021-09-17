@@ -1,12 +1,12 @@
 .PHONY: all clean fclean re
 
-NAME = iter
+NAME = array
 
-CPPFLAGS =  -Wall -Wextra -Werror 
+CPPFLAGS =  -Wall -Wextra -Werror
 CPPVERSION = -std=c++98
 
 $(NAME):
-		@clang++  $(CPPVERSION)  \
+		@clang++  $(CPPFLAGS) $(CPPVERSION)  \
 		main.cpp \
 		 -o $(NAME) 
 

@@ -11,16 +11,54 @@ void swap(U & x , U & y){
 
 template <typename U>
 
-U min(U &x , U &y )
+U & min(U &x , U &y )
 {
     return ( x < y ? x : y);
 }
 
 template <typename U>
 
-U max(U &x , U &y )
+U & max(U &x , U &y )
 {
     return ( x > y ? x : y);
 }
+
+class Awesome {
+
+    public :
+        Awesome(int  n ) : _n(n) {}
+        bool operator==(Awesome const & rhs) const {
+            return this->_n == rhs._n;
+        };
+
+        bool operator !=(Awesome const & rhs) const {
+            return this->_n != rhs._n;
+        };
+
+        bool operator >(Awesome const & rhs) const  {
+            return this->_n > rhs._n;
+        };
+
+        bool operator <(Awesome const & rhs) const {
+            return this->_n < rhs._n;
+        };
+
+        bool operator >=(Awesome const & rhs) const {
+            return this->_n >= rhs._n;
+        };
+
+        bool operator <=(Awesome const & rhs) const {
+            return this->_n <= rhs._n;
+        };
+
+        int  getAwesome(){
+            return this->_n;
+        }
+    private :
+        int  _n;
+        
+};
+
+
 
 #endif
