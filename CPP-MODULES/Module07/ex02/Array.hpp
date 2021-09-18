@@ -6,13 +6,14 @@
 template <typename T>
 class Array {
     public :
-        //default constructor
+        //Construction with no parameter: creates an empty array
         Array( void ){
             array = new T[0];
             len = 0;
         };
 
-        //parametric constructor
+        //Construction with anunsigned int nas a parameter:
+        //creates an array ofnele-ments, initialized by defau
         Array( unsigned int n ){
             array = new T[n];
             len = n;
@@ -22,60 +23,68 @@ class Array {
         Array(Array & src){
             *this = src;
         };
+        
+        //assignement operator
+        Array & operator = (Array<T> & src){
+            if(this!= &src)
+            {
+                int len = src.size();
+                this->array = new T[len];
+                this->len = len;
+                for(int i = 0; i < len ; i++){
+                    (this->array)[i] = src[i];
+                }
+            }
+            return *this;
+        }
         //overload of the opeartor []
-
         T & operator [](int index){
-           // std::cout << "operator[]" << std::endl;
             if(index <= len -1)
                 return array[index];
-            throw std::exception();
+            throw IndexOutOfRange();
         }
-        //assignement operator
-        Array & operator = (Array & src){
-            std::cout << "operator =" << std::endl;
-            if(this!= &src){
-                int len = src.getLen();
-                Array *newArray = new T[len];
-                newArray->len = len;
-                for(int i = 0; i < len ; i++){
-                    newArray[i] = src[i];
-                }
-                //delete[] array;
-                array = newArray;
-            }
-        }
+  
         int  size() const {
             return this->len;
         }
-    
+        class IndexOutOfRange : public std::exception{
+            public :
+                virtual const char *what() const throw(){
+                    return "Index out of range";
+                }
+        };
 
     private :
         T *array;
         int len ;
 };
 
+
+
 template <typename T>
 std::ostream & operator << (std::ostream & o , Array<T> & a){
-    o << &a;
+    o << a[0];
     return o;
 }
 
 
 
 
+// class Awesome
+// {
+//     public :
+//     Awesome(void) : _n(42){return;}
+//     int get(void)const {return this->_n;}
+
+//     private :
+//         int _n;
+// };
+
+// std::ostream & operator << (std::ostream & o, Awesome const &rhs){
+//     o<< rhs.get();
+//     return o;
+// }
+
+
 
 #endif
-
-
-/*
-
-int& Array::operator[](int index)
-{
-    if (index >= size) {
-        cout << "Array index out of bound, exiting";
-        exit(0);
-    }
-    return ptr[index];
-}
-
-*/

@@ -2,7 +2,7 @@
 
 NAME = swap
 
-CPPFLAGS =  -Wall -Wextra -Werror 
+CPPFLAGS =  -Wall -Wextra -Werror
 CPPVERSION = -std=c++98
 
 $(NAME):

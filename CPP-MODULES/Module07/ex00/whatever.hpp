@@ -23,41 +23,41 @@ U & max(U &x , U &y )
     return ( x > y ? x : y);
 }
 
-class Awesome {
+// class Awesome {
 
-    public :
-        Awesome(int  n ) : _n(n) {}
-        bool operator==(Awesome const & rhs) const {
-            return this->_n == rhs._n;
-        };
+//     public :
+//         Awesome(int  n ) : _n(n) {}
+//         bool operator==(Awesome const & rhs) const {
+//             return this->_n == rhs._n;
+//         };
 
-        bool operator !=(Awesome const & rhs) const {
-            return this->_n != rhs._n;
-        };
+//         bool operator !=(Awesome const & rhs) const {
+//             return this->_n != rhs._n;
+//         };
 
-        bool operator >(Awesome const & rhs) const  {
-            return this->_n > rhs._n;
-        };
+//         bool operator >(Awesome const & rhs) const  {
+//             return this->_n > rhs._n;
+//         };
 
-        bool operator <(Awesome const & rhs) const {
-            return this->_n < rhs._n;
-        };
+//         bool operator <(Awesome const & rhs) const {
+//             return this->_n < rhs._n;
+//         };
 
-        bool operator >=(Awesome const & rhs) const {
-            return this->_n >= rhs._n;
-        };
+//         bool operator >=(Awesome const & rhs) const {
+//             return this->_n >= rhs._n;
+//         };
 
-        bool operator <=(Awesome const & rhs) const {
-            return this->_n <= rhs._n;
-        };
+//         bool operator <=(Awesome const & rhs) const {
+//             return this->_n <= rhs._n;
+//         };
 
-        int  getAwesome(){
-            return this->_n;
-        }
-    private :
-        int  _n;
+//         int  getAwesome(){
+//             return this->_n;
+//         }
+//     private :
+//         int  _n;
         
-};
+// };
 
 
 

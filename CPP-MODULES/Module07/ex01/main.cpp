@@ -32,25 +32,17 @@ int main(){
     iter(d, len,add5);
 
 
-    std::cout << "\n------------------------" << std::endl;
+    // std::cout << "\n------------------------" << std::endl;
     
-    int tab[] = {0,1,2,3,4};
+    // int tab[] = {0,1,2,3,4};
 
-    Awesome  tab2[5];
-    iter(tab, 5 , print);
+    // Awesome  tab2[5];
+    // iter(tab, 5 , print);
 
-    iter(tab2,5, print);
+    // iter(tab2,5, print);
 
    
-    
-  //int tab[] ={1,2,3,4};
-  //iter(tab, 4, print);
+
   
 
 }
-
-/*
-std::cout << "std::end(d)" << std::end(d) <<  " " << &(d[7]) << std::endl;
-std::cout << "std::begin(d)" << std::begin(d) << " " << &(d[0]) << std::endl;
-
-*/
