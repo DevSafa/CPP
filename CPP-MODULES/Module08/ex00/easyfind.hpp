@@ -13,11 +13,11 @@ template <typename T>
 
 /*T is a container of int*/
 /*find the first occurence of the second parameter in the first parameter*/
-int  & easyfind(T &container, int tofind)
+typename T::iterator   easyfind(T &container, int tofind)
 {
      typename T::iterator it =std::find(container.begin() , container.end() , tofind);
      if(it != container.end())
-        return *it;
+        return it;
     throw NotFoundException();
 }
 

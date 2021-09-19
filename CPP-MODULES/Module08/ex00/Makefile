@@ -1,6 +1,6 @@
 .PHONY: all clean fclean re
 
-NAME = array
+NAME = easyFind
 
 CPPFLAGS =  -Wall -Wextra -Werror 
 CPPVERSION = -std=c++98
