@@ -75,3 +75,15 @@ const char * Span::InvalidNbrOfElements::what() const throw(){
     return  "Exception : Invalid nbr of elements" ;
 }
 
+// Span::~Span( void ){
+
+// }
+// Span::Span(Span & src){
+//     *this = src;
+// }
+// Span & Span::operator = (Span & src){
+//     if(this != &src){
+//         this->vct = src.getVector();
+//     }
+//     return *this;
+// }

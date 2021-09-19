@@ -4,7 +4,13 @@
 
 #include <algorithm>
 class Span {
+    private:
+        Span( void);                    //canonical
+        
     public:
+       // Span(Span & src);               //canonical;
+       // Span & operator = (Span & src); //canonical
+       // ~Span( void );
         Span(unsigned int n);
         void addNumber(int nbr);
         int shortestSpan(void );
@@ -28,7 +34,6 @@ class Span {
         };
         
     private: 
-        unsigned int _n;
         int max_elements;
         int nbr_elements;
         std::vector<int> vct;
