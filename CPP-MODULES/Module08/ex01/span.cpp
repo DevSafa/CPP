@@ -49,16 +49,16 @@ int Span::longestSpan(void){
     return *(--vct.end()) -  *(vct.begin());
 }
 
-void Span::addNumberRange(std::vector<int>::iterator itBegin , std::vector<int>::iterator itEnd){
-    for(std::vector<int>::iterator it = itBegin ; it != itEnd ; ++it)
-    {
+// void Span::addNumberRange(std::vector<int>::iterator itBegin , std::vector<int>::iterator itEnd){
+//     for(std::vector<int>::iterator it = itBegin ; it != itEnd ; ++it)
+//     {
         
-        if(nbr_elements > max_elements)
-             throw CanNotAddToList();
-        int i = *it;
-        this->addNumber(i);
-     }
-}
+//         if(nbr_elements > max_elements)
+//              throw CanNotAddToList();
+//         int i = *it;
+//         this->addNumber(i);
+//      }
+// }
 
 std::vector<int> Span::getVector(){
     return vct;
@@ -75,15 +75,28 @@ const char * Span::InvalidNbrOfElements::what() const throw(){
     return  "Exception : Invalid nbr of elements" ;
 }
 
-// Span::~Span( void ){
+Span::~Span( void ){
 
-// }
-// Span::Span(Span & src){
+}
+
+
+Span & Span::operator = (Span & src){
+    if(this != &src){
+        this->vct = src.getVector();
+    }
+    return *this;
+}
+// Span::Span(Span &src){
 //     *this = src;
 // }
-// Span & Span::operator = (Span & src){
-//     if(this != &src){
-//         this->vct = src.getVector();
-//     }
-//     return *this;
+// template <typename T>
+// void Span::addNumberRange( T itBegin , T itEnd){
+//      for(T it = itBegin ; it != itEnd ; ++it)
+//     {
+        
+//         if(nbr_elements > max_elements)
+//              throw CanNotAddToList();
+//         int i = *it;
+//         this->addNumber(i);
+//      }
 // }

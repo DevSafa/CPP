@@ -1,5 +1,6 @@
 #include "span.hpp"
 #include <iostream>
+#include <list>
 int main(){
    std::cout << "1---------------" << std::endl;
    Span sp1 =Span(5);
@@ -119,6 +120,18 @@ int main(){
       std::cout << e.what() << std::endl;
    }
 
+   std::cout << "9---------------" << std::endl;
+
+   std::list<int> l;
+   l.push_back(45);
+   l.push_back(23);
+   l.push_back(35);
+
+
+   Span sp10(4);
+   sp10.addNumberRange(l.begin() , l.end());
+
+   sp10.displayElements();
 
   
 }
